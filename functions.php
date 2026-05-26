@@ -55,6 +55,40 @@ function vua_opt($key) {
 }
 function vua_tel() { return preg_replace('/[^0-9+]/', '', vua_opt('phone')); }
 
+/** Cart URL — WooCommerce neu plugin active, fallback /cart/ */
+function vua_cart_url() {
+    if ( function_exists('wc_get_cart_url') ) return wc_get_cart_url();
+    return home_url('/cart/');
+}
+
+/** Cart item count — 0 neu WC chua active */
+function vua_cart_count() {
+    if ( function_exists('WC') && WC()->cart ) return (int) WC()->cart->get_cart_contents_count();
+    return 0;
+}
+
+/** WooCommerce theme support — no-op neu plugin chua install */
+add_action('after_setup_theme', function () {
+    add_theme_support('woocommerce', array(
+        'thumbnail_image_width' => 600,
+        'gallery_thumbnail_image_width' => 200,
+        'single_image_width' => 900,
+        'product_grid' => array('default_columns' => 4, 'min_columns' => 2, 'max_columns' => 6),
+    ));
+    add_theme_support('wc-product-gallery-zoom');
+    add_theme_support('wc-product-gallery-lightbox');
+    add_theme_support('wc-product-gallery-slider');
+});
+
+/** AJAX refresh cart count khi them/xoa item (WC fragment) */
+add_filter('woocommerce_add_to_cart_fragments', function ( $fragments ) {
+    $c = vua_cart_count();
+    ob_start(); ?>
+    <span class="cart-count"><?php echo $c > 0 ? intval($c) : ''; ?></span>
+    <?php $fragments['span.cart-count'] = ob_get_clean();
+    return $fragments;
+});
+
 /** Menu mac dinh khi chua tao menu trong wp-admin */
 function vua_menu_fallback() {
     $items = array(
