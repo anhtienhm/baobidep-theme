@@ -16,19 +16,8 @@ get_header();
   </div>
 </section>
 
-<!-- INTRO (editable in WP Admin) -->
-<?php if ( get_the_content() ) : ?>
-<section class="lp-intro pad">
-  <div class="wrap">
-    <div class="lp-intro-body rv">
-      <?php while ( have_posts() ) : the_post(); the_content(); endwhile; ?>
-    </div>
-  </div>
-</section>
-<?php endif; ?>
-
-<!-- 4 STEPS GRID -->
-<section class="pad" style="padding-top:0">
+<!-- 4 STEPS QUICK GRID (visual summary) -->
+<section class="pad">
   <div class="wrap">
     <div class="steps">
       <div class="step rv">
@@ -55,73 +44,16 @@ get_header();
   </div>
 </section>
 
-<!-- DETAILED STEPS -->
-<section class="pad lp-section-alt">
+<!-- BODY CONTENT (editable in WP Admin) -->
+<?php if ( get_the_content() ) : ?>
+<section class="pad lp-section-alt" style="padding-top:60px">
   <div class="wrap">
-    <div class="shead rv"><span class="kick">Chi tiết quy trình</span><h2>4 bước — Minh bạch & nhanh chóng</h2></div>
-
-    <!-- Step 1 -->
-    <div class="lp-step-detail rv">
-      <div class="lp-step-detail-num"><span>01</span></div>
-      <div class="lp-step-detail-body">
-        <span class="kick">Bước 1</span>
-        <h3>Tư vấn miễn phí</h3>
-        <p>Khách hàng liên hệ qua hotline, email, hoặc form trên website. Đội ngũ tư vấn phản hồi trong vòng <b>30 phút</b> (giờ hành chính) để tìm hiểu nhu cầu: loại bao bì, quy cách, số lượng, thời gian cần hàng.</p>
-        <ul class="lp-step-check">
-          <li>Phản hồi 30 phút trong giờ hành chính</li>
-          <li>Tư vấn giải pháp tối ưu chi phí</li>
-          <li>Gợi ý vật liệu phù hợp ngành nghề</li>
-        </ul>
-      </div>
+    <div class="lp-body rv">
+      <?php while ( have_posts() ) : the_post(); the_content(); endwhile; ?>
     </div>
-
-    <!-- Step 2 -->
-    <div class="lp-step-detail lp-step-detail--reverse rv">
-      <div class="lp-step-detail-num"><span>02</span></div>
-      <div class="lp-step-detail-body">
-        <span class="kick">Bước 2</span>
-        <h3>Báo giá chi tiết</h3>
-        <p>Trong vòng <b>24h</b>, VUA Bao Bì gửi báo giá đầy đủ bao gồm: đơn giá theo số lượng, chi phí khuôn/trục in (nếu có), thời gian sản xuất, điều kiện thanh toán.</p>
-        <ul class="lp-step-check">
-          <li>Báo giá minh bạch, không phát sinh chi phí ẩn</li>
-          <li>Đơn giá theo bậc số lượng (càng nhiều càng rẻ)</li>
-          <li>Cam kết giá tốt nhất thị trường</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Step 3 -->
-    <div class="lp-step-detail rv">
-      <div class="lp-step-detail-num"><span>03</span></div>
-      <div class="lp-step-detail-body">
-        <span class="kick">Bước 3</span>
-        <h3>Sản xuất & Kiểm phẩm</h3>
-        <p>Sau khi ký hợp đồng và nhận đặt cọc, đội thiết kế làm <b>bản in mẫu</b> để khách duyệt. Khi mẫu được chốt, nhà máy sản xuất hàng loạt với <b>3 cấp QC</b>: nguyên liệu - sản xuất - thành phẩm.</p>
-        <ul class="lp-step-check">
-          <li>Duyệt mẫu trước khi sản xuất hàng loạt</li>
-          <li>Kiểm phẩm 3 cấp theo chuẩn ISO 9001:2015</li>
-          <li>Lập biên bản kiểm phẩm cho từng lô</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Step 4 -->
-    <div class="lp-step-detail lp-step-detail--reverse rv">
-      <div class="lp-step-detail-num"><span>04</span></div>
-      <div class="lp-step-detail-body">
-        <span class="kick">Bước 4</span>
-        <h3>Đóng gói & Giao hàng</h3>
-        <p>Thành phẩm được đóng gói cẩn thận theo kiện/pallet tiêu chuẩn vận chuyển. Giao hàng toàn quốc — <b>miễn phí ship</b> cho đơn từ 10 triệu nội thành TP.HCM.</p>
-        <ul class="lp-step-check">
-          <li>Đóng gói chuẩn vận chuyển</li>
-          <li>Giao hàng toàn quốc</li>
-          <li>Lưu khuôn in cho đơn hàng tiếp theo</li>
-        </ul>
-      </div>
-    </div>
-
   </div>
 </section>
+<?php endif; ?>
 
 <!-- CTA -->
 <section class="lp-cta-banner">

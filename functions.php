@@ -367,7 +367,7 @@ function vua_menu_pages_content() {
 
         'san-xuat' => "<h2>Nhà máy 5.000m²<br>quy trình khép kín</h2>\n<p>VUA Bao Bì sở hữu nhà máy diện tích hơn 5.000m² tại TP.HCM, bao gồm các khu vực chuyên biệt: xưởng in ống đồng, xưởng in offset, xưởng dệt PP, xưởng cán màng, xưởng kiểm phẩm.</p>\n<p>Quy trình khép kín từ nguyên liệu đầu vào đến thành phẩm — kiểm soát chất lượng tuyệt đối, giảm chi phí trung gian, giao hàng đúng hẹn.</p>",
 
-        'quy-trinh' => "<p>Tại VUA Bao Bì, chúng tôi tin rằng một quy trình tốt là nền tảng của dịch vụ tốt. Từ tư vấn ban đầu đến giao hàng cuối cùng, mỗi bước đều được thiết kế <strong>tinh gọn — minh bạch — nhanh chóng</strong> để mang đến trải nghiệm tốt nhất cho khách hàng.</p>\n<p>Hơn 25 năm kinh nghiệm đã giúp chúng tôi tối ưu quy trình thành 4 bước đơn giản — đảm bảo bạn luôn biết đơn hàng đang ở đâu, và khi nào nhận được hàng.</p>",
+        'quy-trinh' => "<p>Tại VUA Bao Bì, chúng tôi tin rằng một quy trình tốt là nền tảng của dịch vụ tốt. Từ tư vấn ban đầu đến giao hàng cuối cùng, mỗi bước đều được thiết kế <strong>tinh gọn — minh bạch — nhanh chóng</strong>.</p>\n<p>Hơn 25 năm kinh nghiệm đã giúp chúng tôi tối ưu quy trình thành 4 bước đơn giản — đảm bảo bạn luôn biết đơn hàng đang ở đâu, và khi nào nhận được hàng.</p>\n\n<h2>Bước 1 — Tư vấn miễn phí</h2>\n<p>Khách hàng liên hệ qua hotline, email, hoặc form trên website. Đội ngũ tư vấn phản hồi trong vòng <strong>30 phút</strong> (giờ hành chính) để tìm hiểu nhu cầu: loại bao bì, quy cách, số lượng, thời gian cần hàng. Chúng tôi gợi ý giải pháp phù hợp nhất với ngân sách của khách.</p>\n<ul>\n<li>Phản hồi 30 phút trong giờ hành chính</li>\n<li>Tư vấn giải pháp tối ưu chi phí</li>\n<li>Gợi ý vật liệu phù hợp ngành nghề</li>\n</ul>\n\n<h2>Bước 2 — Báo giá chi tiết</h2>\n<p>Trong vòng <strong>24h</strong>, VUA Bao Bì gửi báo giá đầy đủ bao gồm: đơn giá theo số lượng, chi phí khuôn/trục in (nếu có), thời gian sản xuất, điều kiện thanh toán. Báo giá minh bạch, không phát sinh chi phí ẩn.</p>\n<ul>\n<li>Báo giá minh bạch, không phát sinh chi phí ẩn</li>\n<li>Đơn giá theo bậc số lượng (càng nhiều càng rẻ)</li>\n<li>Cam kết giá tốt nhất thị trường</li>\n</ul>\n\n<h2>Bước 3 — Sản xuất & Kiểm phẩm</h2>\n<p>Sau khi ký hợp đồng và nhận đặt cọc, đội thiết kế làm <strong>bản in mẫu</strong> để khách duyệt. Khi mẫu được chốt, nhà máy sản xuất hàng loạt với <strong>3 cấp QC</strong>: nguyên liệu - sản xuất - thành phẩm.</p>\n<ul>\n<li>Duyệt mẫu trước khi sản xuất hàng loạt</li>\n<li>Kiểm phẩm 3 cấp theo chuẩn ISO 9001:2015</li>\n<li>Lập biên bản kiểm phẩm cho từng lô</li>\n</ul>\n\n<h2>Bước 4 — Đóng gói & Giao hàng</h2>\n<p>Thành phẩm được đóng gói cẩn thận theo kiện/pallet tiêu chuẩn vận chuyển. Giao hàng toàn quốc — <strong>miễn phí ship</strong> cho đơn từ 10 triệu nội thành TP.HCM. Sau giao hàng, VUA Bao Bì luôn sẵn sàng hỗ trợ và lưu trữ khuôn in cho đơn hàng tiếp theo.</p>\n<ul>\n<li>Đóng gói chuẩn vận chuyển</li>\n<li>Giao hàng toàn quốc đúng hẹn</li>\n<li>Lưu khuôn in cho đơn hàng tiếp theo</li>\n</ul>",
 
         'tin-tuc' => "<p>Cập nhật những tin tức mới nhất, kiến thức về vật liệu bao bì, xu hướng đóng gói toàn cầu và mẹo chọn bao bì phù hợp cho từng loại sản phẩm.</p>\n<p>Bài viết được biên tập bởi đội ngũ chuyên gia VUA Bao Bì với hơn <strong>25 năm kinh nghiệm</strong> trong ngành — chia sẻ những hiểu biết thực tế giúp doanh nghiệp tối ưu chi phí đóng gói.</p>",
 
@@ -375,15 +375,21 @@ function vua_menu_pages_content() {
     );
 }
 
+/**
+ * Backfill content into the menu pages.
+ * Only overwrites if the current post_content is short — i.e. still
+ * looks like an earlier auto-seeded default rather than admin edits.
+ */
 add_action('init', function () {
-    if ( get_option('vua_menu_pages_content_v1') ) return;
+    if ( get_option('vua_menu_pages_content_v2') ) return;
     foreach ( vua_menu_pages_content() as $slug => $content ) {
         $page = get_page_by_path($slug);
         if ( ! $page ) continue;
-        if ( trim($page->post_content) !== '' ) continue;
+        $existing_len = mb_strlen( trim( wp_strip_all_tags($page->post_content) ) );
+        if ( $existing_len > 500 ) continue; // admin has substantial edits
         wp_update_post(array('ID' => $page->ID, 'post_content' => $content));
     }
-    update_option('vua_menu_pages_content_v1', 1);
+    update_option('vua_menu_pages_content_v2', 1);
 }, 34);
 
 /** Menu mac dinh khi chua tao menu trong wp-admin */
