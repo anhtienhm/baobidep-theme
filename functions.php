@@ -53,9 +53,9 @@ function vua_tel() { return preg_replace('/[^0-9+]/', '', vua_opt('phone')); }
 function vua_menu_fallback() {
     $items = array(
         '#'         => 'Trang chủ',
+        '#about'    => 'Giới thiệu',
         '#products' => 'Sản phẩm',
         '#why'      => 'Sản xuất',
-        '#about'    => 'Về chúng tôi',
         '#process'  => 'Quy trình',
         '#blog'     => 'Tin tức',
         '#quote'    => 'Liên hệ',
