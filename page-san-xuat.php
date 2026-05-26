@@ -1,62 +1,140 @@
 <?php
 /** Template Name: Sản xuất */
 get_header();
+$u = get_template_directory_uri();
 ?>
 
-<section class="sp-hero pad">
+<!-- HERO -->
+<section class="lp-hero">
+  <div class="lp-hero-bg"></div>
   <div class="wrap">
-    <nav class="sp-crumbs rv"><a href="<?php echo esc_url(home_url('/')); ?>">Trang chủ</a> <span>/</span> <b>Sản xuất</b></nav>
-    <div class="shead rv" style="text-align:left;max-width:none">
-      <span class="kick">Năng lực sản xuất</span>
-      <h1>Nhà máy sản xuất bao bì VUA</h1>
-      <p>Hệ thống nhà xưởng hiện đại, dây chuyền tự động hóa cao — đảm bảo chất lượng và sản lượng cho mọi đơn hàng lớn nhỏ.</p>
+    <nav class="sp-crumbs rv lp-crumbs"><a href="<?php echo esc_url(home_url('/')); ?>">Trang chủ</a> <span>/</span> <b>Sản xuất</b></nav>
+    <div class="lp-hero-body">
+      <span class="kick rv">Năng lực sản xuất</span>
+      <h1 class="rv" data-d="1">Nhà máy sản xuất<br><span class="gtext">bao bì VUA</span></h1>
+      <p class="lp-hero-lead rv" data-d="2">Hệ thống nhà xưởng hiện đại, dây chuyền tự động hóa cao — đảm bảo chất lượng và sản lượng cho mọi đơn hàng lớn nhỏ.</p>
     </div>
   </div>
 </section>
 
-<section class="pad" style="padding-top:0">
+<!-- FACTORY OVERVIEW -->
+<section class="pad">
   <div class="wrap">
-    <div class="sp-content rv">
-      <h2>Hệ thống nhà xưởng</h2>
-      <p>VUA Bao Bì sở hữu nhà máy diện tích hơn 5.000m² tại TP.HCM, bao gồm các khu vực chuyên biệt: xưởng in ống đồng, xưởng in offset, xưởng dệt PP, xưởng cán màng, xưởng kiểm phẩm — đảm bảo quy trình khép kín từ nguyên liệu đầu vào đến thành phẩm.</p>
-
-      <h3>Công nghệ in ấn</h3>
-      <ul>
-        <li><strong>In ống đồng</strong> 1-8 màu — phù hợp đơn hàng số lượng lớn, độ sắc nét cao</li>
-        <li><strong>In offset</strong> — chất lượng hình ảnh tinh tế, phù hợp bao bì cao cấp</li>
-        <li><strong>In flexo</strong> — tốc độ cao, phù hợp túi nilon, băng keo</li>
-        <li><strong>In kỹ thuật số (không trục)</strong> — đơn hàng nhỏ, đổi mẫu nhanh</li>
-      </ul>
-
-      <h3>Máy móc thiết bị</h3>
-      <ul>
-        <li>Dây chuyền dệt PP nhập khẩu Đài Loan, công suất 50 tấn/tháng</li>
-        <li>Máy thổi PE/HDPE từ Hàn Quốc, đa dạng độ dày 0.01-0.5mm</li>
-        <li>Máy cán màng phức hợp 5 lớp, ghép màng nhôm/PET/PE</li>
-        <li>Hệ thống cắt, dập, may túi tự động — sản lượng 100.000 cái/ngày</li>
-      </ul>
-
-      <h3>Kiểm soát chất lượng</h3>
-      <ul>
-        <li><strong>QC nguyên liệu</strong> — Test độ dày, độ dai, độ bền kéo của hạt nhựa nhập</li>
-        <li><strong>QC sản xuất</strong> — Lấy mẫu mỗi lô, kiểm tra màu sắc Pantone, độ bám mực</li>
-        <li><strong>QC thành phẩm</strong> — Kiểm 100% trước khi đóng gói giao hàng</li>
-        <li><strong>Chứng nhận ISO 9001:2015</strong> — Hệ thống quản lý chất lượng quốc tế</li>
-      </ul>
-
-      <h3>Năng lực sản xuất</h3>
-      <p>Với tổng công suất hơn <strong>500 tấn sản phẩm/tháng</strong>, VUA Bao Bì đáp ứng đơn hàng từ vài trăm đến hàng triệu sản phẩm. Thời gian giao hàng tiêu chuẩn 7-15 ngày tùy quy cách.</p>
+    <div class="lp-split">
+      <div class="lp-split-text rv">
+        <span class="kick">Hệ thống nhà xưởng</span>
+        <h2>Nhà máy 5.000m²<br>quy trình khép kín</h2>
+        <p>VUA Bao Bì sở hữu nhà máy diện tích hơn 5.000m² tại TP.HCM, bao gồm các khu vực chuyên biệt: xưởng in ống đồng, xưởng in offset, xưởng dệt PP, xưởng cán màng, xưởng kiểm phẩm.</p>
+        <p>Quy trình khép kín từ nguyên liệu đầu vào đến thành phẩm — kiểm soát chất lượng tuyệt đối, giảm chi phí trung gian, giao hàng đúng hẹn.</p>
+      </div>
+      <div class="lp-split-visual rv" data-d="1">
+        <div class="lp-stat-card lp-stat-card--gold">
+          <div class="lp-stat-num"><b>5.000<small>m²</small></b></div>
+          <div class="lp-stat-label">Diện tích nhà máy</div>
+        </div>
+        <div class="lp-stat-card">
+          <div class="lp-stat-num"><b data-c="500" data-s="">0</b></div>
+          <div class="lp-stat-label">Tấn sản phẩm/tháng</div>
+        </div>
+        <div class="lp-stat-card">
+          <div class="lp-stat-num"><b data-c="100" data-s="%">0</b></div>
+          <div class="lp-stat-label">Kiểm phẩm thành phẩm</div>
+        </div>
+        <div class="lp-stat-card lp-stat-card--gold">
+          <div class="lp-stat-num"><b>ISO</b></div>
+          <div class="lp-stat-label">9001:2015 Certified</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="pad" style="background:#f6f8fc">
-  <div class="wrap" style="text-align:center">
-    <h2 style="font-size:1.8rem;text-transform:uppercase;color:var(--navy-deep);margin-bottom:14px">Tham quan nhà máy của chúng tôi</h2>
-    <p style="color:var(--muted);margin-bottom:24px">Liên hệ đặt lịch tham quan để chứng kiến quy trình sản xuất chuyên nghiệp.</p>
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+<!-- PRINTING TECH -->
+<section class="pad lp-section-alt">
+  <div class="wrap">
+    <div class="shead rv"><span class="kick">Công nghệ in ấn</span><h2>4 công nghệ in tiên tiến</h2><p>Đáp ứng mọi yêu cầu in ấn — từ đơn hàng số lượng lớn đến đơn nhỏ đổi mẫu nhanh.</p></div>
+    <div class="lp-feature-grid lp-feature-grid--4">
+      <article class="lp-feature rv">
+        <div class="lp-feature-num">01</div>
+        <h3>In ống đồng</h3>
+        <p>1-8 màu, độ sắc nét cao, bám mực bền màu. Phù hợp đơn hàng số lượng lớn từ 10.000 sản phẩm trở lên.</p>
+      </article>
+      <article class="lp-feature rv" data-d="1">
+        <div class="lp-feature-num">02</div>
+        <h3>In offset</h3>
+        <p>Chất lượng hình ảnh tinh tế, hiển thị màu Pantone chuẩn xác. Lý tưởng cho bao bì cao cấp, hộp giấy thương hiệu.</p>
+      </article>
+      <article class="lp-feature rv" data-d="2">
+        <div class="lp-feature-num">03</div>
+        <h3>In flexo</h3>
+        <p>Tốc độ in cao, chi phí setup thấp. Tối ưu cho túi nilon, băng keo, bao bì màng mỏng.</p>
+      </article>
+      <article class="lp-feature rv" data-d="3">
+        <div class="lp-feature-num">04</div>
+        <h3>In không trục</h3>
+        <p>Công nghệ kỹ thuật số — không cần làm khuôn/trục in. Phù hợp đơn nhỏ từ 100 cái, đổi mẫu nhanh, in thử mẫu.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPMENT -->
+<section class="pad">
+  <div class="wrap">
+    <div class="shead rv"><span class="kick">Máy móc thiết bị</span><h2>Dây chuyền sản xuất hiện đại</h2><p>Đầu tư máy móc nhập khẩu chính hãng từ Hàn Quốc, Đài Loan, Nhật Bản.</p></div>
+    <div class="lp-eq-list">
+      <div class="lp-eq rv">
+        <div class="lp-eq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div class="lp-eq-text"><h4>Dây chuyền dệt PP</h4><p>Nhập khẩu Đài Loan, công suất 50 tấn/tháng — bao PP dệt 50-100kg đạt tiêu chuẩn xuất khẩu.</p></div>
+      </div>
+      <div class="lp-eq rv" data-d="1">
+        <div class="lp-eq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></div>
+        <div class="lp-eq-text"><h4>Máy thổi PE/HDPE</h4><p>Nhập khẩu Hàn Quốc — đa dạng độ dày 0.01-0.5mm, sản lượng 100.000 sản phẩm/ngày.</p></div>
+      </div>
+      <div class="lp-eq rv" data-d="2">
+        <div class="lp-eq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 8v8a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3z"/><path d="M3 12h18"/></svg></div>
+        <div class="lp-eq-text"><h4>Máy cán màng phức hợp</h4><p>5 lớp ghép — ghép màng nhôm/PET/PE chống thấm, chống tia UV, giữ hương vị thực phẩm.</p></div>
+      </div>
+      <div class="lp-eq rv" data-d="3">
+        <div class="lp-eq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+        <div class="lp-eq-text"><h4>Hệ thống cắt - dập - may</h4><p>Tự động hóa cao — sản lượng 100.000 cái/ngày, cắt chính xác, may đường chỉ đều và bền.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QC PROCESS -->
+<section class="pad lp-section-alt">
+  <div class="wrap">
+    <div class="shead rv"><span class="kick">Kiểm soát chất lượng</span><h2>3 cấp QC nghiêm ngặt</h2><p>Mỗi sản phẩm đều phải vượt qua hệ thống kiểm phẩm 3 lớp trước khi giao đến khách hàng.</p></div>
+    <div class="lp-qc-grid">
+      <div class="lp-qc rv">
+        <div class="lp-qc-num">1</div>
+        <h3>QC Nguyên liệu</h3>
+        <p>Test độ dày, độ dai, độ bền kéo của hạt nhựa nhập khẩu. Loại bỏ ngay nguyên liệu không đạt chuẩn.</p>
+      </div>
+      <div class="lp-qc rv" data-d="1">
+        <div class="lp-qc-num">2</div>
+        <h3>QC Sản xuất</h3>
+        <p>Lấy mẫu mỗi lô sản xuất, kiểm tra màu sắc Pantone, độ bám mực, kích thước, độ chính xác.</p>
+      </div>
+      <div class="lp-qc rv" data-d="2">
+        <div class="lp-qc-num">3</div>
+        <h3>QC Thành phẩm</h3>
+        <p>Kiểm 100% sản phẩm trước khi đóng gói. Lập biên bản kiểm phẩm chi tiết cho từng đơn hàng.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="lp-cta-banner">
+  <div class="wrap">
+    <h2>Tham quan nhà máy của chúng tôi</h2>
+    <p>Liên hệ đặt lịch tham quan để chứng kiến quy trình sản xuất chuyên nghiệp.</p>
+    <div class="lp-cta-row">
       <a href="<?php echo esc_url(home_url('/lien-he/')); ?>" class="btn btn-gold">Đặt lịch tham quan</a>
-      <a href="<?php echo esc_url(home_url('/quy-trinh/')); ?>" class="btn btn-call">Xem quy trình</a>
+      <a href="<?php echo esc_url(home_url('/quy-trinh/')); ?>" class="btn btn-line">Xem quy trình đặt hàng</a>
     </div>
   </div>
 </section>
