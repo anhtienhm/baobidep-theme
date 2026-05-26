@@ -22,6 +22,16 @@ $q = new WP_Query(array(
   </div>
 </section>
 
+<?php if ( get_the_content() ) : ?>
+<section class="lp-intro pad" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="lp-intro-body rv">
+      <?php while ( have_posts() ) : the_post(); the_content(); endwhile; rewind_posts(); ?>
+    </div>
+  </div>
+</section>
+<?php endif; ?>
+
 <section class="sp-related pad" style="padding-top:24px">
   <div class="wrap">
     <?php if ( $q->have_posts() ) : ?>

@@ -23,9 +23,7 @@ $u = get_template_directory_uri();
     <div class="lp-split">
       <div class="lp-split-text rv">
         <span class="kick">Giới thiệu chung</span>
-        <h2>Đối tác bao bì đáng tin cậy<br>của doanh nghiệp Việt</h2>
-        <p>VUA Bao Bì là đơn vị tiên phong trong lĩnh vực sản xuất và in ấn bao bì công nghiệp tại Việt Nam. Chúng tôi sở hữu nhà máy hiện đại tại TP.HCM với đầy đủ dây chuyền in ống đồng, in offset, in flexo, đáp ứng đa dạng nhu cầu đóng gói.</p>
-        <p>Từ thực phẩm, mỹ phẩm đến công nghiệp nặng — mỗi sản phẩm của VUA đều mang theo cam kết về chất lượng và uy tín đã được khẳng định qua 25 năm phát triển.</p>
+        <?php while ( have_posts() ) : the_post(); the_content(); endwhile; ?>
         <div class="lp-cta-row">
           <a href="<?php echo esc_url(home_url('/san-pham/')); ?>" class="btn btn-gold">Xem sản phẩm</a>
           <a href="<?php echo esc_url(home_url('/lien-he/')); ?>" class="btn btn-line">Liên hệ tư vấn</a>

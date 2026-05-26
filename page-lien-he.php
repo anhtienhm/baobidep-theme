@@ -14,7 +14,17 @@ get_header();
   </div>
 </section>
 
-<section class="pad" style="padding-top:0">
+<?php if ( get_the_content() ) : ?>
+<section class="lp-intro pad" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="lp-intro-body rv">
+      <?php while ( have_posts() ) : the_post(); the_content(); endwhile; ?>
+    </div>
+  </div>
+</section>
+<?php endif; ?>
+
+<section class="pad" style="padding-top:30px">
   <div class="wrap">
     <div class="checkout-grid">
       <form class="checkout-form" id="leadForm">
