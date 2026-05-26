@@ -286,6 +286,8 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;back
   body.menu-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
   .hphone b{display:none}
   .nav-r .btn{padding:11px 16px;font-size:.78rem}
+  .hero-cta{flex-wrap:nowrap;gap:10px}
+  .hero-cta .btn{flex:1;padding:13px 14px;font-size:.78rem;justify-content:center}
   .wgrid,.tgrid,.bgrid,.frow,.fgrid,.steps{grid-template-columns:1fr}
   .pgrid{grid-template-columns:repeat(2,1fr);gap:12px}
   .pcb{padding:14px}
