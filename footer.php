@@ -3,7 +3,7 @@
   <div class="wrap">
     <div class="fgrid">
       <div class="fabout">
-        <a href="#" class="logo"><span class="brandmark"></span><b>VUA<small>BAO BÌ CÔNG NGHIỆP</small></b></a>
+        <a href="#" class="logo" aria-label="VUA Bao bì công nghiệp"><span class="brandmark"></span></a>
         <p>Giải pháp bao bì toàn diện – Chất lượng vượt trội. Đồng hành cùng doanh nghiệp phát triển bền vững.</p>
         <div class="fbtns"><a href="#products" class="btn btn-line">Catalogue</a><a href="#quote" class="btn btn-gold">Báo giá</a></div>
       </div>
