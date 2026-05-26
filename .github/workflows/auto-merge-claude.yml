@@ -1,8 +1,15 @@
 name: Auto-merge Claude branches
+
 on:
   push:
     branches:
       - 'claude/**'
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Claude branch to merge into main'
+        required: true
+        default: 'claude/'
 
 permissions:
   contents: write
@@ -11,6 +18,15 @@ jobs:
   merge:
     runs-on: ubuntu-latest
     steps:
+      - name: Resolve target branch
+        id: target
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "branch=${{ inputs.branch }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "branch=${{ github.ref_name }}" >> "$GITHUB_OUTPUT"
+          fi
+
       - uses: actions/checkout@v4
         with:
           ref: main
@@ -18,14 +34,14 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Fetch claude branch
-        run: git fetch origin ${{ github.ref_name }}
+        run: git fetch origin ${{ steps.target.outputs.branch }}
 
-      - name: Merge claude branch into main
+      - name: Merge into main
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git merge origin/${{ github.ref_name }} --no-edit -m "Auto-merge ${{ github.ref_name }} into main"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git merge origin/${{ steps.target.outputs.branch }} --no-edit -m "Auto-merge ${{ steps.target.outputs.branch }} into main"
           git push origin main
 
       - name: Delete claude branch
-        run: git push origin --delete ${{ github.ref_name }}
+        run: git push origin --delete ${{ steps.target.outputs.branch }}
