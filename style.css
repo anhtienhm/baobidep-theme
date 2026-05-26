@@ -345,6 +345,8 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;back
 .sp-cta{display:flex;gap:12px;flex-wrap:nowrap;align-items:center}
 .btn-call{background:#1A3C86;color:#fff;border:none;box-shadow:0 10px 26px -10px rgba(26,60,134,.5)}
 .btn-call:hover{background:#0D255C;transform:translateY(-2px)}
+.sp-cta .btn-line{background:#fff;color:var(--navy-deep);border:1.6px solid rgba(26,60,134,.25);box-shadow:0 6px 18px -10px rgba(13,37,92,.25)}
+.sp-cta .btn-line:hover{background:var(--navy-deep);color:#fff;border-color:var(--navy-deep)}
 .sp-body{padding-top:24px;padding-bottom:24px}
 .sp-content{max-width:880px;margin:0 auto;font-size:1rem;line-height:1.8;color:var(--ink)}
 .sp-content h2{font-size:1.6rem;text-transform:uppercase;color:var(--navy-deep);margin:36px 0 14px;letter-spacing:.01em}
