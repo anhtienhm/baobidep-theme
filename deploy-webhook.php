@@ -7,7 +7,7 @@
  */
 date_default_timezone_set( 'Asia/Ho_Chi_Minh' );
 
-$secret = '06f8095372cfa8db1e3e18e5e20aca07d81e3f57318542d4bf3a504ecaa7f24f';
+$secret = '4e3049ab4b8520a3ab0f5d0cb12107dec1636b93eba240951643052e6fd64e96';
 
 $payload   = file_get_contents( 'php://input' );
 $signature = $_SERVER['HTTP_X_HUB_SIGNATURE_256'] ?? '';
