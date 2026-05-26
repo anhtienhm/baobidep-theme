@@ -12,7 +12,7 @@ $u = get_template_directory_uri();
       <h1 class="rv" data-d="1"><?php echo esc_html( vua_opt('hero_t1') ); ?><span class="gtext"><?php echo esc_html( vua_opt('hero_t2') ); ?></span></h1>
       <p class="lead rv" data-d="2">Sản xuất & in ấn bao bì công nghiệp chất lượng cao: bao PP dệt, thùng carton, bao bì giấy, bao bì nhựa, màng PE… mang công nghệ hiện đại và giải pháp đóng gói đa dạng, đạt chuẩn quốc tế.</p>
       <div class="hero-cta rv" data-d="3">
-        <a href="#quote" class="btn btn-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>Nhận báo giá miễn phí</a>
+        <a href="#quote" class="btn btn-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>Nhận báo giá</a>
         <a href="#products" class="btn btn-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Xem catalogue</a>
       </div>
       <div class="hbadges rv" data-d="4">
