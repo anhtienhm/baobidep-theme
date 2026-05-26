@@ -65,10 +65,13 @@ if ( $related->have_posts() ) : ?>
       <?php while ( $related->have_posts() ) : $related->the_post();
         $rimg  = vua_product_image();
         $rprice = (float) get_post_meta(get_the_ID(), '_vua_price', true);
+        $rterms = get_the_terms(get_the_ID(), 'sanpham_cat');
+        $rcat_name = ( $rterms && ! is_wp_error($rterms) ) ? $rterms[0]->name : '';
       ?>
       <article class="pcard rv">
         <a class="pb" href="<?php the_permalink(); ?>"><img class="pimg" src="<?php echo esc_url($rimg); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy"></a>
         <div class="pcb">
+          <?php if ( $rcat_name ) : ?><span class="pcard-cat"><?php echo esc_html($rcat_name); ?></span><?php endif; ?>
           <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
           <p><?php echo esc_html(wp_trim_words(get_the_excerpt(), 22)); ?></p>
           <div class="pcard-foot">
