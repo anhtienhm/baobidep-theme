@@ -1,0 +1,31 @@
+name: Auto-merge Claude branches
+on:
+  push:
+    branches:
+      - 'claude/**'
+
+permissions:
+  contents: write
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Fetch claude branch
+        run: git fetch origin ${{ github.ref_name }}
+
+      - name: Merge claude branch into main
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git merge origin/${{ github.ref_name }} --no-edit -m "Auto-merge ${{ github.ref_name }} into main"
+          git push origin main
+
+      - name: Delete claude branch
+        run: git push origin --delete ${{ github.ref_name }}
