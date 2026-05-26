@@ -38,9 +38,9 @@ $cat_img = vua_category_image($term->term_id);
           $price = (float) get_post_meta(get_the_ID(), '_vua_price', true);
         ?>
         <article class="pcard rv">
-          <div class="pb"><img class="pimg" src="<?php echo esc_url($rimg); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy"></div>
+          <a class="pb" href="<?php the_permalink(); ?>"><img class="pimg" src="<?php echo esc_url($rimg); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy"></a>
           <div class="pcb">
-            <h3><?php the_title(); ?></h3>
+            <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
             <p><?php echo esc_html(wp_trim_words(get_the_excerpt(), 20)); ?></p>
             <div class="pcard-foot">
               <div class="pcard-price"><?php echo $price > 0 ? esc_html(vua_format_price($price)) : '<em>Liên hệ</em>'; ?></div>
@@ -48,7 +48,6 @@ $cat_img = vua_category_image($term->term_id);
                 <button type="button" class="pcard-add add-to-cart" data-id="<?php echo intval(get_the_ID()); ?>" aria-label="Thêm vào giỏ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>
               <?php endif; ?>
             </div>
-            <a class="pcard-link" href="<?php the_permalink(); ?>">Xem chi tiết <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
         </article>
         <?php endwhile; ?>
