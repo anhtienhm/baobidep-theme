@@ -538,8 +538,9 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;back
 /* Step detail (quy-trinh) — alternating left/right */
 .lp-step-detail{display:grid;grid-template-columns:140px 1fr;gap:36px;align-items:start;margin-bottom:40px;padding-bottom:40px;border-bottom:1px dashed var(--line)}
 .lp-step-detail:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-.lp-step-detail--reverse{grid-template-columns:1fr 140px;direction:rtl}
-.lp-step-detail--reverse > *{direction:ltr}
+.lp-step-detail--reverse{grid-template-columns:1fr 140px}
+.lp-step-detail--reverse .lp-step-detail-num{order:2}
+.lp-step-detail--reverse .lp-step-detail-body{order:1}
 .lp-step-detail-num{display:flex;align-items:center;justify-content:center}
 .lp-step-detail-num span{display:block;font-family:"Oswald";font-weight:700;font-size:5rem;line-height:1;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-.04em}
 .lp-step-detail-body .kick{color:var(--gold-dk)}
@@ -567,7 +568,9 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;back
   .lp-why-grid,.lp-eq-list{grid-template-columns:1fr;gap:14px}
   .lp-qc-grid{grid-template-columns:1fr;gap:14px}
   .lp-qc-grid::before{display:none}
-  .lp-step-detail,.lp-step-detail--reverse{grid-template-columns:1fr;gap:14px;direction:ltr;margin-bottom:28px;padding-bottom:28px}
+  .lp-step-detail,.lp-step-detail--reverse{grid-template-columns:1fr;gap:14px;margin-bottom:28px;padding-bottom:28px}
+  .lp-step-detail--reverse .lp-step-detail-num{order:0}
+  .lp-step-detail--reverse .lp-step-detail-body{order:0}
   .lp-step-detail-num{justify-content:flex-start}
   .lp-step-detail-num span{font-size:3.6rem}
   .lp-cta-banner{padding:46px 0}
