@@ -89,7 +89,7 @@ header.shrink .nav{padding:8px 0}
 .collage .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:3}
 .badge25{position:absolute;top:6%;right:4%;width:88px;height:88px;border-radius:50%;background:var(--grad-gold);color:var(--navy-deep);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:"Oswald";font-weight:700;text-align:center;box-shadow:0 12px 26px -8px rgba(0,0,0,.5);z-index:3;border:3px solid rgba(255,255,255,.5)}
 .badge25 b{font-size:1.7rem;line-height:.85}.badge25 span{font-size:.56rem;letter-spacing:.12em}
-.dock{position:absolute;top:50%;right:-6px;transform:translateY(-50%);display:flex;flex-direction:column;gap:9px;z-index:4}
+.dock{position:fixed;right:14px;bottom:90px;display:flex;flex-direction:column;gap:10px;z-index:999}
 .dock a{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px -6px rgba(0,0,0,.5);transition:transform .2s}
 .dock a:hover{transform:scale(1.08)}
 .dock a svg{width:22px;height:22px}
