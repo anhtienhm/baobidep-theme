@@ -65,6 +65,7 @@ function vua_products_catalog() {
             'title' => 'In ấn & SX túi nilon',
             'slug'  => 'in-an-tui-nilon',
             'img'   => 'p0.jpg',
+            'price' => 0,
             'excerpt' => 'Sản xuất và in túi nilon: túi PE, HD, PP, OPP, CPP, túi shopping nhiều màu theo yêu cầu thương hiệu.',
             'content' => "<h2>Túi nilon in ấn theo yêu cầu</h2>\n<p>VUA Bao Bì là đơn vị sản xuất và in ấn túi nilon trực tiếp tại xưởng, đáp ứng mọi nhu cầu đóng gói cho doanh nghiệp với chất lượng ổn định và giá thành cạnh tranh.</p>\n<h3>Chất liệu cung cấp</h3>\n<ul><li><strong>Túi PE</strong> — dẻo, dai, chống thấm tốt</li><li><strong>Túi HD</strong> (HDPE) — cứng, độ bền cao, chịu tải tốt</li><li><strong>Túi PP</strong> — trong suốt, độ bóng cao</li><li><strong>Túi OPP / CPP</strong> — siêu trong, in ấn sắc nét</li><li><strong>Túi shopping</strong> — quai xách, đáy lập thể, đa dạng kích thước</li></ul>\n<h3>Quy trình sản xuất</h3>\n<ol><li>Tiếp nhận file thiết kế hoặc tư vấn miễn phí</li><li>Báo giá theo số lượng & quy cách</li><li>In bản mẫu duyệt trước khi sản xuất hàng loạt</li><li>Sản xuất — kiểm phẩm — đóng gói — giao hàng toàn quốc</li></ol>\n<p>In ống đồng 1-8 màu, in offset, in flexo — đảm bảo logo & nhận diện thương hiệu sắc nét, bám mực bền màu.</p>",
         ),
@@ -72,6 +73,7 @@ function vua_products_catalog() {
             'title' => 'Túi vải không dệt',
             'slug'  => 'tui-vai-khong-det',
             'img'   => 'p1.jpg',
+            'price' => 12000,
             'excerpt' => 'Túi vải canvas, tote bag, không dệt bền chắc, in logo sắc nét, cung cấp số lượng lớn.',
             'content' => "<h2>Túi vải không dệt cao cấp</h2>\n<p>Giải pháp túi vải thân thiện môi trường, dùng nhiều lần, in logo thương hiệu nổi bật — phù hợp shop thời trang, mỹ phẩm, sự kiện, hội thảo.</p>\n<h3>Các loại túi</h3>\n<ul><li><strong>Túi không dệt</strong> (non-woven) — định lượng 50-100gsm, đa màu</li><li><strong>Túi canvas</strong> — vải dày, cứng cáp, sang trọng</li><li><strong>Tote bag</strong> — kiểu dáng thời trang, quai dài</li><li><strong>Túi đáy hộp</strong> — đứng vững, tải trọng tốt</li></ul>\n<h3>Ưu điểm</h3>\n<ul><li>In logo sắc nét bằng công nghệ in lụa / in chuyển nhiệt</li><li>Bền, dùng nhiều lần — giảm chi phí bao bì dài hạn</li><li>Quảng bá thương hiệu mỗi khi khách hàng sử dụng</li><li>Số lượng tối thiểu chỉ từ 500 chiếc</li></ul>",
         ),
@@ -79,6 +81,7 @@ function vua_products_catalog() {
             'title' => 'Xốp bọc hàng',
             'slug'  => 'xop-boc-hang',
             'img'   => 'p2.jpg',
+            'price' => 95000,
             'excerpt' => 'Xốp PE foam, bubble wrap, màng PE, màng co, carton đóng gói — bảo vệ hàng hoá tối ưu.',
             'content' => "<h2>Vật liệu bọc lót — bảo vệ hàng hóa</h2>\n<p>Cung cấp đầy đủ các loại xốp, màng bọc dùng trong đóng gói vận chuyển, chống va đập, chống ẩm cho hàng hoá điện tử, gốm sứ, mỹ phẩm.</p>\n<h3>Sản phẩm</h3>\n<ul><li><strong>Xốp PE foam</strong> — cuộn xốp mềm, dày 0.5-10mm</li><li><strong>Bubble wrap</strong> (xốp hơi) — bóng khí to/nhỏ, chống sốc</li><li><strong>Màng PE</strong> — cuộn quấn pallet, định hình kiện hàng</li><li><strong>Màng co</strong> — co nhiệt, đóng gói chai/lốc sản phẩm</li><li><strong>Carton 3/5/7 lớp</strong> — thùng đóng gói tiêu chuẩn xuất khẩu</li></ul>\n<h3>Ứng dụng</h3>\n<p>Đóng gói thiết bị điện tử, đồ thủy tinh, sản phẩm dễ vỡ; chuyển phát nhanh, e-commerce; bao gói pallet xuất khẩu.</p>",
         ),
@@ -86,6 +89,7 @@ function vua_products_catalog() {
             'title' => 'Dây rút – thít nhựa',
             'slug'  => 'day-rut-thit-nhua',
             'img'   => 'p3.jpg',
+            'price' => 35000,
             'excerpt' => 'Dây rút nhựa, lạt nhựa, băng keo, màng quấn pallet đa dạng kích thước, sẵn hàng số lượng lớn.',
             'content' => "<h2>Dây rút – thít nhựa các loại</h2>\n<p>Phụ kiện cố định, đóng gói chuyên dụng cho công nghiệp, xây dựng, kho vận. Sẵn hàng số lượng lớn, giao nhanh.</p>\n<h3>Quy cách</h3>\n<ul><li><strong>Dây rút nhựa</strong> (cable tie) — 100mm đến 1000mm, chịu lực 8-100kg</li><li><strong>Lạt nhựa</strong> — đa màu, dùng cho nông nghiệp, đóng gói nhẹ</li><li><strong>Băng keo</strong> — đục, trong, in logo theo yêu cầu</li><li><strong>Màng quấn pallet</strong> — định lượng 17-25 micron, độ căng tốt</li></ul>\n<h3>Cam kết</h3>\n<ul><li>Hàng chính phẩm, không tái chế thứ phẩm</li><li>Có sẵn kho — đặt là giao trong 24h khu vực TP.HCM</li><li>Giá sỉ tốt nhất cho đơn từ 10 thùng</li></ul>",
         ),
@@ -93,6 +97,7 @@ function vua_products_catalog() {
             'title' => 'Túi zipper',
             'slug'  => 'tui-zipper',
             'img'   => 'p4.jpg',
+            'price' => 1800,
             'excerpt' => 'Túi zipper bạc, kraft, zipper thực phẩm: chỉ đỏ, 8 cạnh, đứng đáy… đa dạng quy cách.',
             'content' => "<h2>Túi zipper cao cấp</h2>\n<p>Giải pháp đóng gói tiện lợi cho thực phẩm khô, mỹ phẩm, dược phẩm — bảo quản chân không, mở/đóng nhiều lần dễ dàng.</p>\n<h3>Phân loại</h3>\n<ul><li><strong>Zipper bạc</strong> — chống tia UV, giữ hương vị</li><li><strong>Zipper kraft</strong> — giấy thân thiện môi trường, mặt trước có cửa sổ trong suốt</li><li><strong>Zipper trong</strong> — nhìn rõ sản phẩm bên trong</li><li><strong>Zipper 8 cạnh</strong> (8-side seal) — đứng vững, sang trọng</li><li><strong>Zipper đứng đáy</strong> (stand-up pouch) — phổ biến cho hạt, snack</li></ul>\n<h3>Tính năng</h3>\n<ul><li>Chỉ kéo zip đỏ / vàng / bạc theo yêu cầu</li><li>Đục lỗ treo, van xả khí, vòi rót</li><li>In ống đồng full màu, ép kim, dập nổi</li></ul>",
         ),
@@ -100,6 +105,7 @@ function vua_products_catalog() {
             'title' => 'Túi hút chân không',
             'slug'  => 'tui-hut-chan-khong',
             'img'   => 'p5.jpg',
+            'price' => 1200,
             'excerpt' => 'Bao hút chân không đựng thực phẩm: 1 mặt nhám, 2 mặt nhám, 2 mặt trơn — giữ tươi lâu.',
             'content' => "<h2>Túi hút chân không thực phẩm</h2>\n<p>Bao chuyên dùng cho máy hút chân không gia đình & công nghiệp — bảo quản thực phẩm tươi sống lâu gấp 3-5 lần, ngăn vi khuẩn, giữ trọn hương vị.</p>\n<h3>Phân loại</h3>\n<ul><li><strong>1 mặt nhám, 1 mặt trơn</strong> — dùng cho máy hút có vòi hút</li><li><strong>2 mặt nhám</strong> — hút chân không sâu, độ kín cao</li><li><strong>2 mặt trơn</strong> — dùng cho máy hút buồng (chamber)</li></ul>\n<h3>Ứng dụng</h3>\n<ul><li>Đóng gói thịt, cá, hải sản tươi sống</li><li>Bảo quản hạt cà phê, các loại đậu, ngũ cốc</li><li>Đóng gói thực phẩm chín, đồ ăn liền</li><li>An toàn thực phẩm — PE/PA nhập khẩu, không độc hại</li></ul>",
         ),
@@ -107,6 +113,7 @@ function vua_products_catalog() {
             'title' => 'Túi nhôm – in không trục',
             'slug'  => 'tui-nhom-in-khong-truc',
             'img'   => 'p6.jpg',
+            'price' => 0,
             'excerpt' => 'Hộp giấy kraft, ly giấy, túi giấy cao cấp và các sản phẩm bao bì giấy in ấn tinh tế.',
             'content' => "<h2>Túi nhôm & bao bì giấy in ấn tinh tế</h2>\n<p>Giải pháp bao bì sang trọng cho cà phê, trà, thực phẩm cao cấp — kết hợp công nghệ in không trục hiện đại, tiết kiệm chi phí khi đơn hàng nhỏ.</p>\n<h3>Sản phẩm chính</h3>\n<ul><li><strong>Túi nhôm ghép màng</strong> — chống ẩm, chống tia UV tuyệt đối</li><li><strong>Hộp giấy kraft</strong> — vintage, thân thiện môi trường</li><li><strong>Ly giấy</strong> — cà phê, trà sữa, in logo brand</li><li><strong>Túi giấy quai xoắn / quai dẹt</strong> — shopping, quà tặng</li></ul>\n<h3>Công nghệ in không trục (digital)</h3>\n<ul><li>Không cần làm trục, làm khuôn — giảm chi phí setup</li><li>In số lượng nhỏ từ 100 cái — vẫn rẻ</li><li>Đổi mẫu nhanh — phù hợp test thị trường</li><li>Màu sắc chuẩn CMYK, đạt 95% gamut Pantone</li></ul>",
         ),
@@ -114,6 +121,7 @@ function vua_products_catalog() {
             'title' => 'Túi nhựa PVC',
             'slug'  => 'tui-nhua-pvc',
             'img'   => 'p7.jpg',
+            'price' => 18500,
             'excerpt' => 'Hộp nhựa PVC trong suốt, packaging mỹ phẩm, đa dạng kích thước & màu sắc cho nhiều mục đích.',
             'content' => "<h2>Hộp nhựa PVC trong suốt</h2>\n<p>Bao bì cao cấp dạng hộp trong suốt — trưng bày sản phẩm rõ ràng, sang trọng. Lý tưởng cho mỹ phẩm, đồ chơi, quà tặng, bánh kẹo cao cấp.</p>\n<h3>Đặc tính</h3>\n<ul><li><strong>Vật liệu</strong>: PVC / PET / APET — trong suốt như pha lê</li><li><strong>Độ dày</strong>: 0.2 - 0.5mm — cứng cáp, không biến dạng</li><li><strong>Kiểu dáng</strong>: hộp vuông, hộp tròn, hộp lục giác, kim tự tháp</li><li><strong>Hoàn thiện</strong>: in offset, ép kim, dập nổi, dán nhãn</li></ul>\n<h3>Ứng dụng</h3>\n<ul><li>Packaging mỹ phẩm — kem, son, serum</li><li>Hộp quà bánh trung thu, bánh kẹo, chocolate</li><li>Đồ chơi, mô hình trưng bày</li><li>Sản phẩm gift set, quà tặng doanh nghiệp</li></ul>",
         ),
@@ -136,11 +144,26 @@ add_action('init', function () {
         ));
         if ( $pid && ! is_wp_error($pid) ) {
             update_post_meta($pid, '_vua_img', $p['img']);
+            if ( ! empty($p['price']) ) update_post_meta($pid, '_vua_price', (float) $p['price']);
         }
     }
     update_option('vua_products_seeded', 1);
     flush_rewrite_rules();
 }, 20);
+
+/** Migration: apply demo prices to already-seeded sanpham (run once) */
+add_action('init', function () {
+    if ( get_option('vua_demo_prices_v1') ) return;
+    foreach ( vua_products_catalog() as $p ) {
+        $post = get_page_by_path($p['slug'], OBJECT, 'sanpham');
+        if ( ! $post ) continue;
+        $existing = get_post_meta($post->ID, '_vua_price', true);
+        if ( $existing === '' || (float) $existing === 0.0 ) {
+            update_post_meta($post->ID, '_vua_price', (float) ($p['price'] ?? 0));
+        }
+    }
+    update_option('vua_demo_prices_v1', 1);
+}, 25);
 
 /** Helper: URL san pham theo slug, fallback # neu chua co */
 function vua_product_url($slug) {
