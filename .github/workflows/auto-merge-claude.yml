@@ -1,3 +1,5 @@
+# Auto-merge claude/* branches into main, then delete the source branch.
+# Triggered on push to claude/** or manually via workflow_dispatch.
 name: Auto-merge Claude branches
 
 on:
@@ -7,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       branch:
-        description: 'Claude branch to merge into main'
+        description: 'Claude branch to merge into main (e.g. claude/my-feature)'
         required: true
         default: 'claude/'
 
