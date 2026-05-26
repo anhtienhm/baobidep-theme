@@ -267,15 +267,35 @@ add_action('init', function () {
     flush_rewrite_rules();
 }, 22);
 
-/** Seed san pham con lan dau */
+/** Seed + assign — idempotent, re-runs voi version moi */
 add_action('init', function () {
-    if ( get_option('vua_child_products_seeded') ) return;
+    if ( get_option('vua_products_assigned_v3') ) return;
+
+    // 1. Assign 8 originals to their matching category
+    foreach ( vua_products_catalog() as $p ) {
+        $post = get_page_by_path($p['slug'], OBJECT, 'sanpham');
+        $term = get_term_by('slug', $p['slug'], 'sanpham_cat');
+        if ( $post && $term && ! is_wp_error($term) ) {
+            wp_set_object_terms($post->ID, $term->term_id, 'sanpham_cat');
+        }
+    }
+
+    // 2. Seed/sync 24 child products
     foreach ( vua_child_products_catalog() as $cat_slug => $products ) {
         $term = get_term_by('slug', $cat_slug, 'sanpham_cat');
         if ( ! $term || is_wp_error($term) ) continue;
         foreach ( $products as $i => $p ) {
             $slug = sanitize_title($p['title']);
-            if ( get_page_by_path($slug, OBJECT, 'sanpham') ) continue;
+            $existing = get_page_by_path($slug, OBJECT, 'sanpham');
+            if ( $existing ) {
+                // Already there — just re-assign + ensure meta
+                $pid = $existing->ID;
+                wp_set_object_terms($pid, $term->term_id, 'sanpham_cat');
+                if ( ! get_post_meta($pid, '_vua_price', true) ) {
+                    update_post_meta($pid, '_vua_price', (float) $p['price']);
+                }
+                continue;
+            }
             $pid = wp_insert_post(array(
                 'post_type'    => 'sanpham',
                 'post_status'  => 'publish',
@@ -288,7 +308,6 @@ add_action('init', function () {
             if ( $pid && ! is_wp_error($pid) ) {
                 update_post_meta($pid, '_vua_price', (float) $p['price']);
                 wp_set_object_terms($pid, $term->term_id, 'sanpham_cat');
-                // Image: re-use parent category image
                 $parent = get_page_by_path($cat_slug, OBJECT, 'sanpham');
                 if ( $parent ) {
                     $img = get_post_meta($parent->ID, '_vua_img', true);
@@ -297,7 +316,8 @@ add_action('init', function () {
             }
         }
     }
-    update_option('vua_child_products_seeded', 1);
+
+    update_option('vua_products_assigned_v3', 1);
 }, 28);
 
 /** Sanpham: meta box gia */
