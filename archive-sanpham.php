@@ -19,10 +19,10 @@ get_header();
         'orderby'    => 'menu_order',
     ));
     if ( ! empty($cats) && ! is_wp_error($cats) ) : ?>
-    <div class="sp-filter rv">
-      <a href="<?php echo esc_url(get_post_type_archive_link('sanpham')); ?>" class="sp-filter-pill active">Tất cả</a>
+    <div class="sp-filter rv" id="spFilter">
+      <button type="button" class="sp-filter-pill active" data-slug="all">Tất cả</button>
       <?php foreach ( $cats as $cat ) : ?>
-        <a href="<?php echo esc_url(get_term_link($cat)); ?>" class="sp-filter-pill"><?php echo esc_html($cat->name); ?></a>
+        <button type="button" class="sp-filter-pill" data-slug="<?php echo esc_attr($cat->slug); ?>"><?php echo esc_html($cat->name); ?></button>
       <?php endforeach; ?>
     </div>
     <?php endif; ?>
@@ -32,7 +32,7 @@ get_header();
 <section class="sp-related pad" style="padding-top:24px">
   <div class="wrap">
     <?php if ( have_posts() ) : ?>
-      <div class="pgrid">
+      <div class="pgrid" id="productGrid">
         <?php while ( have_posts() ) : the_post();
           $rimg  = vua_product_image();
           $price = (float) get_post_meta(get_the_ID(), '_vua_price', true);

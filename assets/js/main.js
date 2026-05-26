@@ -119,6 +119,27 @@ document.querySelectorAll('.cart-row').forEach(row=>{
   });
 });
 
+// Filter pills on /san-pham/ archive
+const spFilter=document.getElementById('spFilter'),productGrid=document.getElementById('productGrid');
+if(spFilter&&productGrid){
+  spFilter.addEventListener('click',e=>{
+    const pill=e.target.closest('.sp-filter-pill');
+    if(!pill||pill.classList.contains('active'))return;
+    spFilter.querySelectorAll('.sp-filter-pill').forEach(p=>p.classList.remove('active'));
+    pill.classList.add('active');
+    const slug=pill.dataset.slug||'all';
+    productGrid.classList.add('loading');
+    cartAjax('vua_filter_products',{slug}).then(r=>{
+      productGrid.classList.remove('loading');
+      if(r&&r.success){
+        productGrid.innerHTML=r.data.html;
+        // hide pagination since AJAX returns all
+        document.querySelectorAll('.sp-pagination').forEach(p=>p.style.display='none');
+      }
+    }).catch(()=>productGrid.classList.remove('loading'));
+  });
+}
+
 // Checkout form
 const cf=document.getElementById('checkoutForm');
 if(cf){

@@ -144,7 +144,8 @@ header.shrink .nav{padding:2px 0}
 .sp-pagination .page-numbers{padding:8px 14px;border-radius:8px;background:#fff;border:1px solid var(--line);color:var(--navy-deep);font-family:"Oswald";font-weight:600;font-size:.85rem;text-decoration:none;transition:.2s}
 .sp-pagination .page-numbers:hover,.sp-pagination .page-numbers.current{background:var(--grad-gold);border-color:transparent;color:var(--navy-deep)}
 .sp-filter{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
-.sp-filter-pill{padding:8px 16px;border-radius:100px;background:#fff;border:1.5px solid var(--line);color:var(--navy-deep);font-family:"Oswald";font-weight:600;font-size:.82rem;letter-spacing:.02em;text-transform:uppercase;transition:.2s}
+.sp-filter-pill{padding:8px 16px;border-radius:100px;background:#fff;border:1.5px solid var(--line);color:var(--navy-deep);font-family:"Oswald";font-weight:600;font-size:.82rem;letter-spacing:.02em;text-transform:uppercase;transition:.2s;cursor:pointer}
+.pgrid.loading{opacity:.4;pointer-events:none;transition:opacity .2s}
 .sp-filter-pill:hover{border-color:var(--gold);color:var(--gold-dk)}
 .sp-filter-pill.active{background:var(--grad-gold);border-color:transparent;color:var(--navy-deep)}
 .pcard-cat{display:inline-block;font-family:"Oswald";font-weight:600;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dk);margin-bottom:6px}
