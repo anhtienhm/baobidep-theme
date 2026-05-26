@@ -129,6 +129,8 @@ header.shrink .nav{padding:2px 0}
 .pb .pimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:4}
 .pcb{padding:22px;flex:1;display:flex;flex-direction:column}
 .pcb h3{font-size:1.12rem;text-transform:uppercase;color:var(--navy-deep);letter-spacing:.01em;margin-bottom:8px}
+.pcb h3 a{color:inherit;transition:color .2s}
+.pcb h3 a:hover{color:var(--gold-dk)}
 .pcb p{font-size:.86rem;color:var(--muted);flex:1}
 .pcb a,.pcb .pcard-link{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-family:"Oswald";font-weight:600;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-dk)}
 .pcard-foot{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
