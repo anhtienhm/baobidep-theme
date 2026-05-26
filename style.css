@@ -76,7 +76,7 @@ header.shrink .nav{padding:2px 0}
 .hero::before{content:"";position:absolute;inset:0;opacity:.5;background-image:radial-gradient(circle at 1px 1px,rgba(255,210,77,.1) 1px,transparent 0);background-size:30px 30px;-webkit-mask-image:linear-gradient(120deg,#000,transparent 70%);mask-image:linear-gradient(120deg,#000,transparent 70%)}
 .hero::after{content:"";position:absolute;top:-15%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(245,179,11,.18),transparent 65%)}
 .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding:70px 28px 78px}
-.hbadges{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:22px}
+.hbadges{display:flex;gap:9px;flex-wrap:wrap;margin-top:28px}
 .hbadge{display:inline-flex;align-items:center;gap:7px;font-size:.74rem;font-weight:600;padding:7px 13px;border:1px solid rgba(255,210,77,.3);border-radius:100px;color:var(--gold-lt);background:rgba(255,210,77,.06)}
 .hbadge svg{width:13px;height:13px}
 .hero h1{font-size:clamp(2.3rem,4.8vw,3.7rem);text-transform:uppercase;letter-spacing:.01em}
