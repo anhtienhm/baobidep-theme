@@ -128,26 +128,14 @@ function vua_products_catalog() {
     );
 }
 
-/** Seed catalog 1 lan dau */
+/** Migration: xoa 8 san pham goc (gio chuyen thanh danh muc) */
 add_action('init', function () {
-    if ( get_option('vua_products_seeded') ) return;
-    foreach ( vua_products_catalog() as $i => $p ) {
-        if ( get_page_by_path($p['slug'], OBJECT, 'sanpham') ) continue;
-        $pid = wp_insert_post(array(
-            'post_type'    => 'sanpham',
-            'post_status'  => 'publish',
-            'post_title'   => $p['title'],
-            'post_name'    => $p['slug'],
-            'post_excerpt' => $p['excerpt'],
-            'post_content' => $p['content'],
-            'menu_order'   => $i,
-        ));
-        if ( $pid && ! is_wp_error($pid) ) {
-            update_post_meta($pid, '_vua_img', $p['img']);
-            if ( ! empty($p['price']) ) update_post_meta($pid, '_vua_price', (float) $p['price']);
-        }
+    if ( get_option('vua_originals_removed_v1') ) return;
+    foreach ( vua_products_catalog() as $p ) {
+        $post = get_page_by_path($p['slug'], OBJECT, 'sanpham');
+        if ( $post ) wp_delete_post($post->ID, true);
     }
-    update_option('vua_products_seeded', 1);
+    update_option('vua_originals_removed_v1', 1);
     flush_rewrite_rules();
 }, 20);
 
@@ -308,11 +296,8 @@ add_action('init', function () {
             if ( $pid && ! is_wp_error($pid) ) {
                 update_post_meta($pid, '_vua_price', (float) $p['price']);
                 wp_set_object_terms($pid, $term->term_id, 'sanpham_cat');
-                $parent = get_page_by_path($cat_slug, OBJECT, 'sanpham');
-                if ( $parent ) {
-                    $img = get_post_meta($parent->ID, '_vua_img', true);
-                    if ( $img ) update_post_meta($pid, '_vua_img', $img);
-                }
+                $img = get_term_meta($term->term_id, '_vua_img', true);
+                if ( $img ) update_post_meta($pid, '_vua_img', $img);
             }
         }
     }
