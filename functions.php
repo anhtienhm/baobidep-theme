@@ -43,7 +43,7 @@ function vua_opt($key) {
         'email'   => 'vua.baobi@gmail.com',
         'address' => '45/12 Lê Văn Lương, P. Tân Phong, Quận 7, TP.HCM',
         'hero_t1' => 'Vua của ngành',
-        'hero_t2' => 'bao bì công nghiệp',
+        'hero_t2' => 'bao bì đóng gói',
     );
     return get_theme_mod('vua_' . $key, isset($d[$key]) ? $d[$key] : '');
 }
