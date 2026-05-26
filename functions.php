@@ -36,8 +36,10 @@ function vua_assets() {
 
     wp_enqueue_script('vua-main', get_template_directory_uri() . '/assets/js/main.js', array(), $js_ver, true);
     wp_localize_script('vua-main', 'vuaAjax', array(
-        'url'   => admin_url('admin-ajax.php'),
-        'nonce' => wp_create_nonce('vua_lead'),
+        'url'       => admin_url('admin-ajax.php'),
+        'nonce'     => wp_create_nonce('vua_lead'),
+        'cartNonce' => wp_create_nonce('vua_cart'),
+        'cartUrl'   => vua_cart_url(),
     ));
 }
 add_action('wp_enqueue_scripts', 'vua_assets');
@@ -55,39 +57,50 @@ function vua_opt($key) {
 }
 function vua_tel() { return preg_replace('/[^0-9+]/', '', vua_opt('phone')); }
 
-/** Cart URL — WooCommerce neu plugin active, fallback /cart/ */
-function vua_cart_url() {
-    if ( function_exists('wc_get_cart_url') ) return wc_get_cart_url();
-    return home_url('/cart/');
+/** Custom commerce — cart su dung cookie JSON */
+require get_template_directory() . '/inc/cart.php';
+
+/** URL cua 3 trang commerce */
+function vua_cart_url() { return home_url('/cart/'); }
+function vua_checkout_url() { return home_url('/checkout/'); }
+function vua_thanks_url($order_id = 0) {
+    $url = home_url('/cam-on/');
+    return $order_id ? add_query_arg('order', $order_id, $url) : $url;
 }
 
-/** Cart item count — 0 neu WC chua active */
+/** Cart count tu cart custom */
 function vua_cart_count() {
-    if ( function_exists('WC') && WC()->cart ) return (int) WC()->cart->get_cart_contents_count();
-    return 0;
+    return Vua_Cart::count();
 }
 
-/** WooCommerce theme support — no-op neu plugin chua install */
-add_action('after_setup_theme', function () {
-    add_theme_support('woocommerce', array(
-        'thumbnail_image_width' => 600,
-        'gallery_thumbnail_image_width' => 200,
-        'single_image_width' => 900,
-        'product_grid' => array('default_columns' => 4, 'min_columns' => 2, 'max_columns' => 6),
-    ));
-    add_theme_support('wc-product-gallery-zoom');
-    add_theme_support('wc-product-gallery-lightbox');
-    add_theme_support('wc-product-gallery-slider');
-});
+/** Format gia VND: 25000 -> 25.000 ₫ */
+function vua_format_price($n) {
+    return number_format((float) $n, 0, ',', '.') . ' ₫';
+}
 
-/** AJAX refresh cart count khi them/xoa item (WC fragment) */
-add_filter('woocommerce_add_to_cart_fragments', function ( $fragments ) {
-    $c = vua_cart_count();
-    ob_start(); ?>
-    <span class="cart-count"><?php echo $c > 0 ? intval($c) : ''; ?></span>
-    <?php $fragments['span.cart-count'] = ob_get_clean();
-    return $fragments;
-});
+/** Auto tao 3 trang commerce neu chua co */
+add_action('init', function () {
+    if ( get_option('vua_pages_seeded') ) return;
+    $pages = array(
+        'cart'   => array('Giỏ hàng', 'page-cart.php'),
+        'checkout' => array('Thanh toán', 'page-checkout.php'),
+        'cam-on' => array('Cảm ơn', 'page-thanks.php'),
+    );
+    foreach ( $pages as $slug => $info ) {
+        if ( get_page_by_path($slug) ) continue;
+        $pid = wp_insert_post(array(
+            'post_type'   => 'page',
+            'post_status' => 'publish',
+            'post_title'  => $info[0],
+            'post_name'   => $slug,
+            'post_content' => '',
+        ));
+        if ( $pid && ! is_wp_error($pid) ) {
+            update_post_meta($pid, '_wp_page_template', $info[1]);
+        }
+    }
+    update_option('vua_pages_seeded', 1);
+}, 30);
 
 /** Menu mac dinh khi chua tao menu trong wp-admin */
 function vua_menu_fallback() {
