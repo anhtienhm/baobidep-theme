@@ -171,6 +171,135 @@ function vua_product_url($slug) {
     return $p ? get_permalink($p) : '#';
 }
 
+/** Helper: URL danh muc theo slug (taxonomy archive), fallback product URL */
+function vua_category_url($slug) {
+    $term = get_term_by('slug', $slug, 'sanpham_cat');
+    if ( $term && ! is_wp_error($term) ) return get_term_link($term);
+    return vua_product_url($slug);
+}
+
+/** Helper: anh dai dien danh muc — meta _vua_img > placeholder */
+function vua_category_image($term_id) {
+    $img = get_term_meta($term_id, '_vua_img', true);
+    if ( $img ) return get_template_directory_uri() . '/assets/img/products/' . $img;
+    return get_template_directory_uri() . '/assets/img/products/p0.jpg';
+}
+
+/** Taxonomy: Danh muc san pham */
+add_action('init', function () {
+    register_taxonomy('sanpham_cat', 'sanpham', array(
+        'labels' => array(
+            'name'          => 'Danh mục sản phẩm',
+            'singular_name' => 'Danh mục',
+            'menu_name'     => 'Danh mục',
+            'add_new_item'  => 'Thêm danh mục',
+            'edit_item'     => 'Sửa danh mục',
+            'all_items'     => 'Tất cả danh mục',
+        ),
+        'public'            => true,
+        'hierarchical'      => true,
+        'show_admin_column' => true,
+        'show_in_rest'      => true,
+        'rewrite'           => array('slug' => 'danh-muc', 'with_front' => false),
+    ));
+});
+
+/** Catalogue 24 san pham con — 3/danh-muc */
+function vua_child_products_catalog() {
+    return array(
+        'in-an-tui-nilon' => array(
+            array('title' => 'Túi PE 1kg trắng',          'price' => 35000,  'excerpt' => 'Túi PE trong suốt sức chứa 1kg — dùng cho thực phẩm, hàng hoá nhẹ. Bịch 100 cái.'),
+            array('title' => 'Túi HD 2kg trong',          'price' => 48000,  'excerpt' => 'Túi HDPE cứng cáp, chịu tải 2kg — đa năng cho siêu thị, cửa hàng. Bịch 100 cái.'),
+            array('title' => 'Túi shopping in logo',      'price' => 850,    'excerpt' => 'Túi shopping in logo theo yêu cầu thương hiệu, MOQ 500 cái.'),
+        ),
+        'tui-vai-khong-det' => array(
+            array('title' => 'Túi không dệt 100gsm',      'price' => 9500,   'excerpt' => 'Túi không dệt định lượng 100gsm, có quai, đa màu, kích thước phổ thông.'),
+            array('title' => 'Túi canvas tote bag',       'price' => 28000,  'excerpt' => 'Túi canvas dày, in logo sắc nét — dùng cho shop thời trang, sự kiện.'),
+            array('title' => 'Túi đáy hộp 30×40',         'price' => 14500,  'excerpt' => 'Túi không dệt đáy hộp đứng vững, kích thước 30×40cm, tải trọng tốt.'),
+        ),
+        'xop-boc-hang' => array(
+            array('title' => 'Bubble wrap 50m',           'price' => 120000, 'excerpt' => 'Cuộn xốp hơi 50m, bóng khí nhỏ, chống va đập tối ưu.'),
+            array('title' => 'Xốp PE foam cuộn 1mm',      'price' => 85000,  'excerpt' => 'Cuộn xốp PE foam dày 1mm — đệm lót đồ điện tử, gốm sứ.'),
+            array('title' => 'Màng PE quấn pallet 17μ',   'price' => 165000, 'excerpt' => 'Cuộn màng PE 17 micron, độ căng tốt — định hình kiện hàng.'),
+        ),
+        'day-rut-thit-nhua' => array(
+            array('title' => 'Dây rút 100mm trắng',       'price' => 18000,  'excerpt' => 'Bịch 100 dây rút nhựa 100mm, chịu lực 8kg.'),
+            array('title' => 'Lạt nhựa đa màu',           'price' => 22000,  'excerpt' => 'Bịch lạt nhựa đa màu cho nông nghiệp, đóng gói nhẹ.'),
+            array('title' => 'Băng keo trong 4.8cm',      'price' => 12500,  'excerpt' => 'Cuộn băng keo trong 4.8cm × 100m, độ dính cao.'),
+        ),
+        'tui-zipper' => array(
+            array('title' => 'Túi zipper bạc 100g',       'price' => 1500,   'excerpt' => 'Túi zipper bạc đứng, đựng 100g, dùng cho thực phẩm khô.'),
+            array('title' => 'Zipper kraft cửa sổ',       'price' => 2200,   'excerpt' => 'Túi zipper kraft mặt trước có cửa sổ trong nhìn rõ sản phẩm.'),
+            array('title' => 'Zipper đứng đáy 250g',      'price' => 2800,   'excerpt' => 'Stand-up pouch đáy phẳng, đứng vững, đựng 250g.'),
+        ),
+        'tui-hut-chan-khong' => array(
+            array('title' => 'Túi hút chân không 20×30',  'price' => 950,    'excerpt' => 'Túi nhám 1 mặt, kích thước 20×30cm — đa năng cho gia đình.'),
+            array('title' => 'Túi 2 mặt nhám 25×35',      'price' => 1450,   'excerpt' => 'Túi 2 mặt nhám, 25×35cm — hút chân không sâu, độ kín cao.'),
+            array('title' => 'Túi chân không 30×40',      'price' => 1800,   'excerpt' => 'Túi 30×40cm cho thịt, cá tươi sống — đóng gói lớn.'),
+        ),
+        'tui-nhom-in-khong-truc' => array(
+            array('title' => 'Hộp giấy kraft size M',     'price' => 4500,   'excerpt' => 'Hộp giấy kraft 15×10×5cm, gấp gọn — giao hàng e-commerce.'),
+            array('title' => 'Ly giấy 250ml',             'price' => 580,    'excerpt' => 'Ly giấy 250ml đựng cà phê, trà sữa — in logo brand.'),
+            array('title' => 'Túi giấy quai xoắn',        'price' => 3800,   'excerpt' => 'Túi giấy kraft quai xoắn — shopping, quà tặng cao cấp.'),
+        ),
+        'tui-nhua-pvc' => array(
+            array('title' => 'Hộp PVC trong 8×8×10',      'price' => 12500,  'excerpt' => 'Hộp PVC trong suốt 8×8×10cm — gift packaging, mỹ phẩm.'),
+            array('title' => 'Hộp PVC lục giác',          'price' => 15800,  'excerpt' => 'Hộp PVC dạng lục giác sang trọng — packaging cosmetic.'),
+            array('title' => 'Hộp PVC quà tặng',          'price' => 22000,  'excerpt' => 'Hộp PVC nắp ép kim — quà tặng doanh nghiệp cao cấp.'),
+        ),
+    );
+}
+
+/** Seed danh muc lan dau — su dung lai data tu vua_products_catalog */
+add_action('init', function () {
+    if ( get_option('vua_cats_seeded') ) return;
+    foreach ( vua_products_catalog() as $p ) {
+        if ( term_exists($p['slug'], 'sanpham_cat') ) continue;
+        $term = wp_insert_term($p['title'], 'sanpham_cat', array(
+            'slug'        => $p['slug'],
+            'description' => $p['content'],
+        ));
+        if ( ! is_wp_error($term) ) {
+            update_term_meta($term['term_id'], '_vua_img', $p['img']);
+        }
+    }
+    update_option('vua_cats_seeded', 1);
+    flush_rewrite_rules();
+}, 22);
+
+/** Seed san pham con lan dau */
+add_action('init', function () {
+    if ( get_option('vua_child_products_seeded') ) return;
+    foreach ( vua_child_products_catalog() as $cat_slug => $products ) {
+        $term = get_term_by('slug', $cat_slug, 'sanpham_cat');
+        if ( ! $term || is_wp_error($term) ) continue;
+        foreach ( $products as $i => $p ) {
+            $slug = sanitize_title($p['title']);
+            if ( get_page_by_path($slug, OBJECT, 'sanpham') ) continue;
+            $pid = wp_insert_post(array(
+                'post_type'    => 'sanpham',
+                'post_status'  => 'publish',
+                'post_title'   => $p['title'],
+                'post_name'    => $slug,
+                'post_excerpt' => $p['excerpt'],
+                'post_content' => '<p>' . esc_html($p['excerpt']) . '</p><p>Liên hệ tư vấn cho đơn hàng số lượng lớn để có giá tốt nhất.</p>',
+                'menu_order'   => $i,
+            ));
+            if ( $pid && ! is_wp_error($pid) ) {
+                update_post_meta($pid, '_vua_price', (float) $p['price']);
+                wp_set_object_terms($pid, $term->term_id, 'sanpham_cat');
+                // Image: re-use parent category image
+                $parent = get_page_by_path($cat_slug, OBJECT, 'sanpham');
+                if ( $parent ) {
+                    $img = get_post_meta($parent->ID, '_vua_img', true);
+                    if ( $img ) update_post_meta($pid, '_vua_img', $img);
+                }
+            }
+        }
+    }
+    update_option('vua_child_products_seeded', 1);
+}, 28);
+
 /** Sanpham: meta box gia */
 add_action('add_meta_boxes', function () {
     add_meta_box('vua_price_box', 'Giá bán', 'vua_render_price_box', 'sanpham', 'side', 'high');
