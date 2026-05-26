@@ -10,15 +10,17 @@ document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 const cio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,end=+el.dataset.c,sf=el.dataset.s||'';let n=0,st=Math.max(1,Math.round(end/45));const t=setInterval(()=>{n+=st;if(n>=end){n=end;clearInterval(t)}el.textContent=n+sf},22);cio.unobserve(el)}),{threshold:.6});
 document.querySelectorAll('[data-c]').forEach(el=>cio.observe(el));
 const f=document.getElementById('leadForm'),re=/^(0|\+84)\d{9,10}$/;
-const bad=(id,b)=>document.getElementById(id).closest('.fg').classList.toggle('bad',b);
-f.addEventListener('submit',e=>{e.preventDefault();
-  const n=document.getElementById('name'),p=document.getElementById('phone'),pr=document.getElementById('prod');
-  const bn=!n.value.trim(),bp=!re.test(p.value.replace(/[\s.]/g,'')),bpr=!pr.value;
-  bad('name',bn);bad('phone',bp);bad('prod',bpr);
-  if(bn||bp||bpr)return;
-  const fd=new URLSearchParams();fd.append('action','vua_lead');fd.append('nonce',(window.vuaAjax&&vuaAjax.nonce)||'');fd.append('name',n.value);fd.append('phone',p.value);fd.append('email',(document.getElementById('email')||{}).value||'');fd.append('prod',pr.value);
-  fetch((window.vuaAjax&&vuaAjax.url)||'',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:fd}).then(r=>r.json()).catch(()=>({})).then(()=>{f.style.display='none';document.getElementById('qok').style.display='block';});
-});
+if(f){
+  const bad=(id,b)=>document.getElementById(id).closest('.fg').classList.toggle('bad',b);
+  f.addEventListener('submit',e=>{e.preventDefault();
+    const n=document.getElementById('name'),p=document.getElementById('phone'),pr=document.getElementById('prod');
+    const bn=!n.value.trim(),bp=!re.test(p.value.replace(/[\s.]/g,'')),bpr=!pr.value;
+    bad('name',bn);bad('phone',bp);bad('prod',bpr);
+    if(bn||bp||bpr)return;
+    const fd=new URLSearchParams();fd.append('action','vua_lead');fd.append('nonce',(window.vuaAjax&&vuaAjax.nonce)||'');fd.append('name',n.value);fd.append('phone',p.value);fd.append('email',(document.getElementById('email')||{}).value||'');fd.append('prod',pr.value);
+    fetch((window.vuaAjax&&vuaAjax.url)||'',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:fd}).then(r=>r.json()).catch(()=>({})).then(()=>{f.style.display='none';document.getElementById('qok').style.display='block';});
+  });
+}
 const fab=document.getElementById('fab'),fabBtn=document.getElementById('fabBtn');
 if(fab&&fabBtn){
   fabBtn.addEventListener('click',e=>{e.stopPropagation();const o=fab.classList.toggle('is-open');fabBtn.setAttribute('aria-expanded',o);});
