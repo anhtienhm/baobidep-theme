@@ -19,7 +19,12 @@ if ( has_custom_logo() ) {
       <div class="fcol"><h4>Sản phẩm</h4><ul>
         <li><a href="#">Bao bì giấy & thùng carton</a></li><li><a href="#">Bao bì nhựa – màng co</a></li><li><a href="#">Bao bì PP dệt</a></li><li><a href="#">Túi zipper</a></li><li><a href="#">Túi hút chân không</a></li><li><a href="#">Tem nhãn – in ấn tổng hợp</a></li></ul></div>
       <div class="fcol"><h4>Chính sách</h4><ul>
-        <li><a href="#">Chính sách đổi trả</a></li><li><a href="#">Chính sách bảo mật</a></li><li><a href="#">Chính sách thanh toán</a></li><li><a href="#">Chính sách khuyến mãi</a></li><li><a href="#">Chính sách vận chuyển</a></li></ul></div>
+        <li><a href="<?php echo esc_url(home_url('/chinh-sach-doi-tra/')); ?>">Chính sách đổi trả</a></li>
+        <li><a href="<?php echo esc_url(home_url('/chinh-sach-bao-mat/')); ?>">Chính sách bảo mật</a></li>
+        <li><a href="<?php echo esc_url(home_url('/chinh-sach-thanh-toan/')); ?>">Chính sách thanh toán</a></li>
+        <li><a href="<?php echo esc_url(home_url('/chinh-sach-khuyen-mai/')); ?>">Chính sách khuyến mãi</a></li>
+        <li><a href="<?php echo esc_url(home_url('/chinh-sach-van-chuyen/')); ?>">Chính sách vận chuyển</a></li>
+      </ul></div>
       <div class="fcol"><h4>Liên hệ</h4>
         <div class="fci"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg><?php echo esc_html( vua_opt('address') ); ?></div>
         <div class="fci"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg><a href="tel:<?php echo esc_attr( vua_tel() ); ?>"><?php echo esc_html( vua_opt('phone') ); ?></a></div>
