@@ -9,16 +9,16 @@ $u = get_template_directory_uri();
 <section class="hero">
   <div class="wrap">
     <div class="htext">
-      <div class="hbadges rv">
-        <span class="hbadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>Tư vấn miễn phí</span>
-        <span class="hbadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Giao hàng toàn quốc</span>
-        <span class="hbadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20M4 20V8l5-3 5 3M14 20V11l5-3v12"/></svg>Sản xuất tận xưởng</span>
-      </div>
       <h1 class="rv" data-d="1"><?php echo esc_html( vua_opt('hero_t1') ); ?><span class="gtext"><?php echo esc_html( vua_opt('hero_t2') ); ?></span></h1>
       <p class="lead rv" data-d="2">Sản xuất & in ấn bao bì công nghiệp chất lượng cao: bao PP dệt, thùng carton, bao bì giấy, bao bì nhựa, màng PE… mang công nghệ hiện đại và giải pháp đóng gói đa dạng, đạt chuẩn quốc tế.</p>
       <div class="hero-cta rv" data-d="3">
         <a href="#quote" class="btn btn-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>Nhận báo giá miễn phí</a>
         <a href="#products" class="btn btn-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Xem catalogue</a>
+      </div>
+      <div class="hbadges rv" data-d="4">
+        <span class="hbadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>Tư vấn miễn phí</span>
+        <span class="hbadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Giao hàng toàn quốc</span>
+        <span class="hbadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20M4 20V8l5-3 5 3M14 20V11l5-3v12"/></svg>Sản xuất tận xưởng</span>
       </div>
     </div>
     <div class="hero-visual rv" data-d="2">
