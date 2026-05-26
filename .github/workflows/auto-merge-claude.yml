@@ -1,17 +1,8 @@
-# Auto-merge claude/* branches into main, then delete the source branch.
-# Triggered on push to claude/** or manually via workflow_dispatch.
 name: Auto-merge Claude branches
-
 on:
   push:
     branches:
       - 'claude/**'
-  workflow_dispatch:
-    inputs:
-      branch:
-        description: 'Claude branch to merge into main (e.g. claude/my-feature)'
-        required: true
-        default: 'claude/'
 
 permissions:
   contents: write
@@ -20,30 +11,22 @@ jobs:
   merge:
     runs-on: ubuntu-latest
     steps:
-      - name: Resolve target branch
-        id: target
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "branch=${{ inputs.branch }}" >> "$GITHUB_OUTPUT"
-          else
-            echo "branch=${{ github.ref_name }}" >> "$GITHUB_OUTPUT"
-          fi
-
       - uses: actions/checkout@v4
         with:
           ref: main
           fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: false
 
-      - name: Fetch claude branch
-        run: git fetch origin ${{ steps.target.outputs.branch }}
-
-      - name: Merge into main
+      - name: Merge claude branch into main and clean up
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: ${{ github.ref_name }}
+          REPO: ${{ github.repository }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git merge origin/${{ steps.target.outputs.branch }} --no-edit -m "Auto-merge ${{ steps.target.outputs.branch }} into main"
-          git push origin main
-
-      - name: Delete claude branch
-        run: git push origin --delete ${{ steps.target.outputs.branch }}
+          REMOTE="https://x-access-token:${TOKEN}@github.com/${REPO}.git"
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git fetch "$REMOTE" "$BRANCH"
+          git merge FETCH_HEAD --no-edit -m "Auto-merge $BRANCH into main"
+          git push "$REMOTE" main
+          git push "$REMOTE" --delete "$BRANCH"
