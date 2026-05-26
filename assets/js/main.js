@@ -17,3 +17,8 @@ f.addEventListener('submit',e=>{e.preventDefault();
   const fd=new URLSearchParams();fd.append('action','vua_lead');fd.append('nonce',(window.vuaAjax&&vuaAjax.nonce)||'');fd.append('name',n.value);fd.append('phone',p.value);fd.append('email',(document.getElementById('email')||{}).value||'');fd.append('prod',pr.value);
   fetch((window.vuaAjax&&vuaAjax.url)||'',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:fd}).then(r=>r.json()).catch(()=>({})).then(()=>{f.style.display='none';document.getElementById('qok').style.display='block';});
 });
+const fab=document.getElementById('fab'),fabBtn=document.getElementById('fabBtn');
+if(fab&&fabBtn){
+  fabBtn.addEventListener('click',e=>{e.stopPropagation();const o=fab.classList.toggle('is-open');fabBtn.setAttribute('aria-expanded',o);});
+  document.addEventListener('click',e=>{if(fab.classList.contains('is-open')&&!fab.contains(e.target)){fab.classList.remove('is-open');fabBtn.setAttribute('aria-expanded','false');}});
+}
