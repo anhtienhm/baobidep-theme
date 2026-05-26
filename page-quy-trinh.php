@@ -16,8 +16,19 @@ get_header();
   </div>
 </section>
 
+<!-- INTRO (editable in WP Admin) -->
+<?php if ( get_the_content() ) : ?>
+<section class="lp-intro pad">
+  <div class="wrap">
+    <div class="lp-intro-body rv">
+      <?php while ( have_posts() ) : the_post(); the_content(); endwhile; ?>
+    </div>
+  </div>
+</section>
+<?php endif; ?>
+
 <!-- 4 STEPS GRID -->
-<section class="pad">
+<section class="pad" style="padding-top:0">
   <div class="wrap">
     <div class="steps">
       <div class="step rv">

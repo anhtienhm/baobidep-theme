@@ -360,6 +360,32 @@ add_action('init', function () {
     update_option('vua_menu_pages_seeded_v1', 1);
 }, 32);
 
+/** Backfill noi dung admin co the edit cho 5 menu page */
+function vua_menu_pages_content() {
+    return array(
+        'gioi-thieu' => "<h2>Đối tác bao bì đáng tin cậy<br>của doanh nghiệp Việt</h2>\n<p>VUA Bao Bì là đơn vị tiên phong trong lĩnh vực sản xuất và in ấn bao bì công nghiệp tại Việt Nam. Chúng tôi sở hữu nhà máy hiện đại tại TP.HCM với đầy đủ dây chuyền in ống đồng, in offset, in flexo, đáp ứng đa dạng nhu cầu đóng gói.</p>\n<p>Từ thực phẩm, mỹ phẩm đến công nghiệp nặng — mỗi sản phẩm của VUA đều mang theo cam kết về chất lượng và uy tín đã được khẳng định qua 25 năm phát triển.</p>",
+
+        'san-xuat' => "<h2>Nhà máy 5.000m²<br>quy trình khép kín</h2>\n<p>VUA Bao Bì sở hữu nhà máy diện tích hơn 5.000m² tại TP.HCM, bao gồm các khu vực chuyên biệt: xưởng in ống đồng, xưởng in offset, xưởng dệt PP, xưởng cán màng, xưởng kiểm phẩm.</p>\n<p>Quy trình khép kín từ nguyên liệu đầu vào đến thành phẩm — kiểm soát chất lượng tuyệt đối, giảm chi phí trung gian, giao hàng đúng hẹn.</p>",
+
+        'quy-trinh' => "<p>Tại VUA Bao Bì, chúng tôi tin rằng một quy trình tốt là nền tảng của dịch vụ tốt. Từ tư vấn ban đầu đến giao hàng cuối cùng, mỗi bước đều được thiết kế <strong>tinh gọn — minh bạch — nhanh chóng</strong> để mang đến trải nghiệm tốt nhất cho khách hàng.</p>\n<p>Hơn 25 năm kinh nghiệm đã giúp chúng tôi tối ưu quy trình thành 4 bước đơn giản — đảm bảo bạn luôn biết đơn hàng đang ở đâu, và khi nào nhận được hàng.</p>",
+
+        'tin-tuc' => "<p>Cập nhật những tin tức mới nhất, kiến thức về vật liệu bao bì, xu hướng đóng gói toàn cầu và mẹo chọn bao bì phù hợp cho từng loại sản phẩm.</p>\n<p>Bài viết được biên tập bởi đội ngũ chuyên gia VUA Bao Bì với hơn <strong>25 năm kinh nghiệm</strong> trong ngành — chia sẻ những hiểu biết thực tế giúp doanh nghiệp tối ưu chi phí đóng gói.</p>",
+
+        'lien-he' => "<p>VUA Bao Bì luôn sẵn sàng tư vấn và đồng hành cùng doanh nghiệp của bạn.</p>\n<p>Để lại thông tin qua form bên dưới hoặc liên hệ trực tiếp qua hotline — chúng tôi cam kết phản hồi trong vòng <strong>30 phút</strong> (giờ hành chính) và gửi báo giá chi tiết trong vòng <strong>24 giờ</strong>.</p>",
+    );
+}
+
+add_action('init', function () {
+    if ( get_option('vua_menu_pages_content_v1') ) return;
+    foreach ( vua_menu_pages_content() as $slug => $content ) {
+        $page = get_page_by_path($slug);
+        if ( ! $page ) continue;
+        if ( trim($page->post_content) !== '' ) continue;
+        wp_update_post(array('ID' => $page->ID, 'post_content' => $content));
+    }
+    update_option('vua_menu_pages_content_v1', 1);
+}, 34);
+
 /** Menu mac dinh khi chua tao menu trong wp-admin */
 function vua_menu_fallback() {
     $items = array(

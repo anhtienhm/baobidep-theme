@@ -23,9 +23,7 @@ $u = get_template_directory_uri();
     <div class="lp-split">
       <div class="lp-split-text rv">
         <span class="kick">Hệ thống nhà xưởng</span>
-        <h2>Nhà máy 5.000m²<br>quy trình khép kín</h2>
-        <p>VUA Bao Bì sở hữu nhà máy diện tích hơn 5.000m² tại TP.HCM, bao gồm các khu vực chuyên biệt: xưởng in ống đồng, xưởng in offset, xưởng dệt PP, xưởng cán màng, xưởng kiểm phẩm.</p>
-        <p>Quy trình khép kín từ nguyên liệu đầu vào đến thành phẩm — kiểm soát chất lượng tuyệt đối, giảm chi phí trung gian, giao hàng đúng hẹn.</p>
+        <?php while ( have_posts() ) : the_post(); the_content(); endwhile; ?>
       </div>
       <div class="lp-split-visual rv" data-d="1">
         <div class="lp-stat-card lp-stat-card--gold">
