@@ -38,6 +38,58 @@ function vua_handle_lead() {
 add_action('wp_ajax_vua_lead', 'vua_handle_lead');
 add_action('wp_ajax_nopriv_vua_lead', 'vua_handle_lead');
 
+/** Filter san pham theo danh muc (AJAX, public) */
+add_action('wp_ajax_vua_filter_products', 'vua_filter_products_ajax');
+add_action('wp_ajax_nopriv_vua_filter_products', 'vua_filter_products_ajax');
+function vua_filter_products_ajax() {
+    $slug = isset($_POST['slug']) ? sanitize_title( wp_unslash($_POST['slug']) ) : '';
+    $args = array(
+        'post_type'      => 'sanpham',
+        'posts_per_page' => 60,
+        'orderby'        => array('menu_order' => 'ASC', 'date' => 'DESC'),
+    );
+    if ( $slug && $slug !== 'all' ) {
+        $args['tax_query'] = array(array(
+            'taxonomy' => 'sanpham_cat',
+            'field'    => 'slug',
+            'terms'    => $slug,
+        ));
+    }
+    $q = new WP_Query($args);
+
+    ob_start();
+    if ( $q->have_posts() ) {
+        while ( $q->have_posts() ) { $q->the_post();
+            $rimg  = vua_product_image();
+            $price = (float) get_post_meta(get_the_ID(), '_vua_price', true);
+            $terms = get_the_terms(get_the_ID(), 'sanpham_cat');
+            $cat_name = ( $terms && ! is_wp_error($terms) ) ? $terms[0]->name : '';
+            ?>
+            <article class="pcard rv in">
+              <a class="pb" href="<?php the_permalink(); ?>"><img class="pimg" src="<?php echo esc_url($rimg); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy"></a>
+              <div class="pcb">
+                <?php if ( $cat_name ) : ?><span class="pcard-cat"><?php echo esc_html($cat_name); ?></span><?php endif; ?>
+                <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                <p><?php echo esc_html(wp_trim_words(get_the_excerpt(), 18)); ?></p>
+                <div class="pcard-foot">
+                  <div class="pcard-price"><?php echo $price > 0 ? esc_html(vua_format_price($price)) : '<em>Liên hệ</em>'; ?></div>
+                  <?php if ( $price > 0 ) : ?>
+                    <button type="button" class="pcard-add add-to-cart" data-id="<?php echo intval(get_the_ID()); ?>" aria-label="Thêm vào giỏ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>
+                  <?php endif; ?>
+                </div>
+              </div>
+            </article>
+            <?php
+        }
+        wp_reset_postdata();
+    } else {
+        echo '<div class="cart-empty" style="grid-column:1/-1"><h3>Chưa có sản phẩm</h3><p>Danh mục này hiện chưa có sản phẩm.</p></div>';
+    }
+    $html = ob_get_clean();
+
+    wp_send_json_success(array('html' => $html, 'count' => $q->found_posts));
+}
+
 /** Cart AJAX endpoints */
 function vua_cart_ajax_response() {
     wp_send_json_success(array(
