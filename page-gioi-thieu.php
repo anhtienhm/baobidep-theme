@@ -1,7 +1,6 @@
 <?php
 /** Template Name: Giới thiệu */
 get_header();
-$u = get_template_directory_uri();
 ?>
 
 <!-- HERO -->
@@ -17,96 +16,40 @@ $u = get_template_directory_uri();
   </div>
 </section>
 
-<!-- INTRO 2-COL -->
-<section class="pad">
+<!-- STATS BAR -->
+<section class="pad" style="padding-top:48px;padding-bottom:20px">
   <div class="wrap">
-    <div class="lp-split">
-      <div class="lp-split-text rv">
-        <span class="kick">Giới thiệu chung</span>
-        <?php while ( have_posts() ) : the_post(); the_content(); endwhile; ?>
-        <div class="lp-cta-row">
-          <a href="<?php echo esc_url(home_url('/san-pham/')); ?>" class="btn btn-gold">Xem sản phẩm</a>
-          <a href="<?php echo esc_url(home_url('/lien-he/')); ?>" class="btn btn-line">Liên hệ tư vấn</a>
-        </div>
+    <div class="lp-stats-bar">
+      <div class="lp-stat-card lp-stat-card--gold rv">
+        <div class="lp-stat-num"><b data-c="25" data-s="+">0</b></div>
+        <div class="lp-stat-label">Năm kinh nghiệm</div>
       </div>
-      <div class="lp-split-visual rv" data-d="1">
-        <div class="lp-stat-card">
-          <div class="lp-stat-num"><b data-c="25" data-s="+">0</b></div>
-          <div class="lp-stat-label">Năm kinh nghiệm</div>
-        </div>
-        <div class="lp-stat-card lp-stat-card--alt">
-          <div class="lp-stat-num"><b data-c="500" data-s="+">0</b></div>
-          <div class="lp-stat-label">Khách hàng</div>
-        </div>
-        <div class="lp-stat-card lp-stat-card--alt">
-          <div class="lp-stat-num"><b data-c="10" data-s="+">0</b></div>
-          <div class="lp-stat-label">Quốc gia xuất khẩu</div>
-        </div>
-        <div class="lp-stat-card">
-          <div class="lp-stat-num"><b data-c="500" data-s="+">0</b></div>
-          <div class="lp-stat-label">Tấn/tháng</div>
-        </div>
+      <div class="lp-stat-card rv" data-d="1">
+        <div class="lp-stat-num"><b data-c="500" data-s="+">0</b></div>
+        <div class="lp-stat-label">Khách hàng</div>
+      </div>
+      <div class="lp-stat-card rv" data-d="2">
+        <div class="lp-stat-num"><b data-c="10" data-s="+">0</b></div>
+        <div class="lp-stat-label">Quốc gia xuất khẩu</div>
+      </div>
+      <div class="lp-stat-card lp-stat-card--alt rv" data-d="3">
+        <div class="lp-stat-num"><b data-c="500" data-s="+">0</b></div>
+        <div class="lp-stat-label">Tấn sản phẩm/tháng</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- VISION MISSION VALUES -->
-<section class="pad lp-section-alt">
+<!-- BODY CONTENT (editable in WP Admin) -->
+<?php if ( get_the_content() ) : ?>
+<section class="pad lp-section-alt" style="padding-top:40px">
   <div class="wrap">
-    <div class="shead rv"><span class="kick">Định hướng phát triển</span><h2>Tầm nhìn · Sứ mệnh · Giá trị</h2><p>3 trụ cột định hình mọi quyết định và hành động tại VUA Bao Bì.</p></div>
-    <div class="lp-feature-grid">
-      <article class="lp-feature rv">
-        <div class="lp-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-        <h3>Tầm nhìn</h3>
-        <p>Trở thành nhà cung cấp giải pháp bao bì toàn diện hàng đầu Đông Nam Á, mang đến giá trị bền vững cho khách hàng và đối tác.</p>
-      </article>
-      <article class="lp-feature rv" data-d="1">
-        <div class="lp-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-        <h3>Sứ mệnh</h3>
-        <p>Đồng hành cùng doanh nghiệp Việt Nam, cung cấp bao bì chất lượng cao với giá thành cạnh tranh, hướng tới sản xuất xanh, thân thiện môi trường.</p>
-      </article>
-      <article class="lp-feature rv" data-d="2">
-        <div class="lp-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 15.5 8.5 22 9.5l-5 5 1.2 7L12 18l-6.2 3.5L7 14.5 2 9.5l6.5-1z"/></svg></div>
-        <h3>Giá trị cốt lõi</h3>
-        <p>Chất lượng — Uy tín — Sáng tạo — Đồng hành. 4 từ khóa định hình văn hóa làm việc và mối quan hệ với khách hàng.</p>
-      </article>
+    <div class="lp-body rv">
+      <?php while ( have_posts() ) : the_post(); the_content(); endwhile; ?>
     </div>
   </div>
 </section>
-
-<!-- WHY CHOOSE US -->
-<section class="pad">
-  <div class="wrap">
-    <div class="shead rv"><span class="kick">Vì sao chọn VUA?</span><h2>Lý do hàng nghìn doanh nghiệp tin tưởng</h2></div>
-    <div class="lp-why-grid">
-      <div class="lp-why rv">
-        <div class="lp-why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
-        <div class="lp-why-text"><h4>Chất lượng đạt chuẩn quốc tế</h4><p>Chứng nhận ISO 9001:2015, kiểm phẩm 3 cấp nghiêm ngặt.</p></div>
-      </div>
-      <div class="lp-why rv" data-d="1">
-        <div class="lp-why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-        <div class="lp-why-text"><h4>Giao hàng toàn quốc</h4><p>Đúng hẹn 100%, miễn phí ship đơn ≥ 10 triệu nội thành TP.HCM.</p></div>
-      </div>
-      <div class="lp-why rv" data-d="2">
-        <div class="lp-why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 20h20M4 20V8l5-3 5 3M14 20V11l5-3v12"/></svg></div>
-        <div class="lp-why-text"><h4>Sản xuất tận xưởng</h4><p>Nhà máy 5.000m² TP.HCM, không qua trung gian — giá tốt nhất.</p></div>
-      </div>
-      <div class="lp-why rv">
-        <div class="lp-why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 2"/></svg></div>
-        <div class="lp-why-text"><h4>Phản hồi nhanh trong 30 phút</h4><p>Đội tư vấn trực 24/7, báo giá chi tiết trong 24h.</p></div>
-      </div>
-      <div class="lp-why rv" data-d="1">
-        <div class="lp-why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7 9 18l-5-5"/></svg></div>
-        <div class="lp-why-text"><h4>MOQ thấp, linh hoạt</h4><p>Đặt từ 500 cái, công nghệ in không trục cho đơn nhỏ giá rẻ.</p></div>
-      </div>
-      <div class="lp-why rv" data-d="2">
-        <div class="lp-why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></div>
-        <div class="lp-why-text"><h4>Hỗ trợ sau bán hàng</h4><p>Lưu khuôn in, đặt lại nhanh, ưu đãi đối tác lâu năm.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
+<?php endif; ?>
 
 <!-- CTA -->
 <section class="lp-cta-banner">
