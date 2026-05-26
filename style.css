@@ -494,6 +494,9 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;back
 .lp-stat-card--gold .lp-stat-label{color:var(--navy-deep);opacity:.75}
 
 .lp-cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+/* btn-line on light backgrounds (default white-outline only fits navy sections) */
+.lp-split .btn-line,.lp-section-alt .btn-line{background:#fff;color:var(--navy-deep);border:1.6px solid rgba(26,60,134,.25);box-shadow:0 6px 18px -10px rgba(13,37,92,.2)}
+.lp-split .btn-line:hover,.lp-section-alt .btn-line:hover{background:var(--navy-deep);color:#fff;border-color:var(--navy-deep)}
 
 /* Feature grid (3 or 4 col) */
 .lp-feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
