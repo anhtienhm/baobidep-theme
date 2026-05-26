@@ -102,22 +102,55 @@ add_action('init', function () {
     update_option('vua_pages_seeded', 1);
 }, 30);
 
+/** Auto tao cac page tuong ung menu */
+add_action('init', function () {
+    if ( get_option('vua_menu_pages_seeded_v1') ) return;
+    $pages = array(
+        'gioi-thieu' => array('Giới thiệu', 'page-gioi-thieu.php'),
+        'san-xuat'   => array('Sản xuất', 'page-san-xuat.php'),
+        'quy-trinh'  => array('Quy trình', 'page-quy-trinh.php'),
+        'tin-tuc'    => array('Tin tức', 'page-tin-tuc.php'),
+        'lien-he'    => array('Liên hệ', 'page-lien-he.php'),
+    );
+    foreach ( $pages as $slug => $info ) {
+        if ( get_page_by_path($slug) ) continue;
+        $pid = wp_insert_post(array(
+            'post_type'    => 'page',
+            'post_status'  => 'publish',
+            'post_title'   => $info[0],
+            'post_name'    => $slug,
+            'post_content' => '',
+        ));
+        if ( $pid && ! is_wp_error($pid) ) {
+            update_post_meta($pid, '_wp_page_template', $info[1]);
+        }
+    }
+    update_option('vua_menu_pages_seeded_v1', 1);
+}, 32);
+
 /** Menu mac dinh khi chua tao menu trong wp-admin */
 function vua_menu_fallback() {
     $items = array(
-        '#'         => 'Trang chủ',
-        '#about'    => 'Giới thiệu',
-        '#products' => 'Sản phẩm',
-        '#why'      => 'Sản xuất',
-        '#process'  => 'Quy trình',
-        '#blog'     => 'Tin tức',
-        '#quote'    => 'Liên hệ',
+        home_url('/')             => 'Trang chủ',
+        home_url('/gioi-thieu/')  => 'Giới thiệu',
+        home_url('/san-pham/')    => 'Sản phẩm',
+        home_url('/san-xuat/')    => 'Sản xuất',
+        home_url('/quy-trinh/')   => 'Quy trình',
+        home_url('/tin-tuc/')     => 'Tin tức',
+        home_url('/lien-he/')     => 'Liên hệ',
     );
+    $current = trim( $_SERVER['REQUEST_URI'] ?? '', '/' );
+    if ( $current === '' ) $current = home_url('/');
     echo '<ul id="menu" class="menu">';
-    $first = true;
     foreach ( $items as $href => $label ) {
-        printf('<li><a href="%s"%s>%s</a></li>', esc_attr($href), $first ? ' class="active"' : '', esc_html($label));
-        $first = false;
+        $href_path = trim( wp_parse_url($href, PHP_URL_PATH) ?: '', '/' );
+        $is_active = false;
+        if ( $href === home_url('/') ) {
+            $is_active = is_front_page();
+        } elseif ( $href_path !== '' ) {
+            $is_active = strpos($current, $href_path) === 0;
+        }
+        printf('<li><a href="%s"%s>%s</a></li>', esc_url($href), $is_active ? ' class="active"' : '', esc_html($label));
     }
     echo '</ul>';
 }
