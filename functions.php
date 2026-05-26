@@ -17,8 +17,13 @@ function vua_setup() {
 add_action('after_setup_theme', 'vua_setup');
 
 function vua_assets() {
+    $css_path = get_template_directory() . '/style.css';
+    $js_path  = get_template_directory() . '/assets/js/main.js';
+    $css_ver  = file_exists($css_path) ? filemtime($css_path) : VUA_VER;
+    $js_ver   = file_exists($js_path) ? filemtime($js_path) : VUA_VER;
+
     wp_enqueue_style('vua-fonts', 'https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap', array(), null);
-    wp_enqueue_style('vua-style', get_stylesheet_uri(), array('vua-fonts'), VUA_VER);
+    wp_enqueue_style('vua-style', get_stylesheet_uri(), array('vua-fonts'), $css_ver);
 
     $logo = get_template_directory_uri() . '/assets/img/logo.png';
     if ( has_custom_logo() ) {
@@ -29,7 +34,7 @@ function vua_assets() {
     $logo_footer = 'https://baobidep.webngon.net/wp-content/uploads/2026/05/logo-footer.png';
     wp_add_inline_style('vua-style', ':root{--logo:url("' . esc_url($logo) . '");--logo-footer:url("' . esc_url($logo_footer) . '")}');
 
-    wp_enqueue_script('vua-main', get_template_directory_uri() . '/assets/js/main.js', array(), VUA_VER, true);
+    wp_enqueue_script('vua-main', get_template_directory_uri() . '/assets/js/main.js', array(), $js_ver, true);
     wp_localize_script('vua-main', 'vuaAjax', array(
         'url'   => admin_url('admin-ajax.php'),
         'nonce' => wp_create_nonce('vua_lead'),
