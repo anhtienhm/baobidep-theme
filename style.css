@@ -277,8 +277,8 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;back
   .menu a.active::after{display:none}
   body.menu-open::after{content:"";position:fixed;inset:0;background:rgba(8,16,40,.55);backdrop-filter:blur(3px);z-index:997}
   body.menu-open{overflow:hidden}
-  .nav-r{flex:1;margin-left:24px}
-  .burger{display:flex;position:relative;z-index:1001;width:34px;height:34px;justify-content:center;align-items:center;margin-left:auto}
+  .nav-r{margin-left:auto}
+  .burger{display:flex;position:relative;z-index:1001;width:34px;height:34px;justify-content:center;align-items:center}
   .burger span{transition:transform .3s,opacity .2s;transform-origin:center}
   body.menu-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   body.menu-open .burger span:nth-child(2){opacity:0}
