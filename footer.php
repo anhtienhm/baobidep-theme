@@ -1,9 +1,18 @@
-<?php $u = get_template_directory_uri(); ?>
+<?php
+$u = get_template_directory_uri();
+$footer_logo  = 'https://baobidep.webngon.net/wp-content/uploads/2026/05/logo-footer.png';
+$fallback_logo = $u . '/assets/img/logo.png';
+if ( has_custom_logo() ) {
+    $cid = get_theme_mod('custom_logo');
+    $src = $cid ? wp_get_attachment_image_url($cid, 'full') : '';
+    if ( $src ) $fallback_logo = $src;
+}
+?>
 <footer>
   <div class="wrap">
     <div class="fgrid">
       <div class="fabout">
-        <a href="#" class="logo" aria-label="VUA Bao bì công nghiệp"><span class="brandmark"></span></a>
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="logo flogo" aria-label="VUA Bao bì công nghiệp"><img src="<?php echo esc_url($footer_logo); ?>" alt="VUA Bao bì công nghiệp" onerror="this.onerror=null;this.src='<?php echo esc_js($fallback_logo); ?>'" loading="lazy"></a>
         <p>Giải pháp bao bì toàn diện – Chất lượng vượt trội. Đồng hành cùng doanh nghiệp phát triển bền vững.</p>
         <div class="fbtns"><a href="#products" class="btn btn-line">Catalogue</a><a href="#quote" class="btn btn-gold">Báo giá</a></div>
       </div>
