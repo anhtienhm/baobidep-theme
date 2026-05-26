@@ -26,7 +26,8 @@ function vua_assets() {
         $src = $cid ? wp_get_attachment_image_url($cid, 'full') : '';
         if ( $src ) $logo = $src;
     }
-    wp_add_inline_style('vua-style', ':root{--logo:url("' . esc_url($logo) . '")}');
+    $logo_footer = 'https://baobidep.webngon.net/wp-content/uploads/2026/05/logo-footer.png';
+    wp_add_inline_style('vua-style', ':root{--logo:url("' . esc_url($logo) . '");--logo-footer:url("' . esc_url($logo_footer) . '")}');
 
     wp_enqueue_script('vua-main', get_template_directory_uri() . '/assets/js/main.js', array(), VUA_VER, true);
     wp_localize_script('vua-main', 'vuaAjax', array(

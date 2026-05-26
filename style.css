@@ -58,6 +58,7 @@ header.shrink{box-shadow:0 10px 30px -14px rgba(0,0,0,.5)}
 header.shrink .nav{padding:2px 0}
 .logo{display:inline-flex;align-items:center}
 .logo .brandmark{width:89px;height:89px}
+.fabout .logo .brandmark{background-image:var(--logo-footer);width:160px;height:80px}
 .menu{display:flex;gap:22px;list-style:none;margin-left:auto}
 .menu a{color:#dfe5f5;font-size:.92rem;font-weight:500;padding:6px 0;position:relative;white-space:nowrap}
 .menu a:hover,.menu a.active{color:var(--gold-lt)}
