@@ -169,6 +169,7 @@ header.shrink .nav{padding:8px 0}
 .quote{background:var(--grad-navy);color:#fff;overflow:hidden}
 .quote::after{content:"";position:absolute;top:0;right:0;width:50%;height:100%;opacity:.5;background:radial-gradient(circle at 80% 20%,rgba(245,179,11,.16),transparent 60%)}
 .quote .qbg{position:absolute;inset:0;z-index:0;background:center/cover;opacity:.92}
+.quote::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(110deg,rgba(13,37,92,.88) 0%,rgba(13,37,92,.72) 50%,rgba(13,37,92,.5) 100%);pointer-events:none}
 .quote .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center}
 .qleft h2{font-size:clamp(1.7rem,3.2vw,2.4rem);text-transform:uppercase;margin:8px 0 18px}
 .qperks{list-style:none;margin-top:8px}
