@@ -280,3 +280,33 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;back
   .abadge{right:8px}
 }
 .badge25{display:none}.collage svg{display:none}.collage .hero-img{position:relative;inset:auto;height:auto;object-fit:contain}.qforklift{display:none}.quote::after{display:none}
+
+/* ===== Single product page ===== */
+.sp-hero{padding-top:36px}
+.sp-crumbs{font-size:.84rem;color:var(--muted);margin-bottom:24px}
+.sp-crumbs a{color:var(--muted);transition:color .2s}
+.sp-crumbs a:hover{color:var(--gold-dk)}
+.sp-crumbs span{margin:0 8px;opacity:.5}
+.sp-crumbs b{color:var(--navy-deep);font-weight:600}
+.sp-head{display:grid;grid-template-columns:1.05fr 1fr;gap:46px;align-items:center}
+.sp-img{background:var(--grad-banner);border-radius:18px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh)}
+.sp-img img{width:100%;height:100%;object-fit:cover}
+.sp-meta h1{font-size:clamp(1.9rem,3.6vw,2.8rem);text-transform:uppercase;color:var(--navy-deep);margin:10px 0 14px}
+.sp-meta .lead{font-size:1.02rem;color:#4a5269;line-height:1.7;margin-bottom:24px}
+.sp-cta{display:flex;gap:12px;flex-wrap:wrap}
+.sp-body{padding-top:24px;padding-bottom:24px}
+.sp-content{max-width:880px;margin:0 auto;font-size:1rem;line-height:1.8;color:var(--ink)}
+.sp-content h2{font-size:1.6rem;text-transform:uppercase;color:var(--navy-deep);margin:36px 0 14px;letter-spacing:.01em}
+.sp-content h3{font-size:1.15rem;color:var(--navy);margin:26px 0 12px;text-transform:uppercase;letter-spacing:.02em}
+.sp-content p{margin-bottom:14px}
+.sp-content ul,.sp-content ol{margin:0 0 18px 22px;padding:0}
+.sp-content li{margin-bottom:8px}
+.sp-content ul li{list-style:none;position:relative;padding-left:18px}
+.sp-content ul li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;border-radius:50%;background:var(--grad-gold)}
+.sp-content strong{color:var(--navy-deep)}
+.sp-related{background:#f6f8fc}
+@media(max-width:760px){
+  .sp-head{grid-template-columns:1fr;gap:24px}
+  .sp-img{aspect-ratio:16/10}
+  .sp-content h2{font-size:1.3rem;margin-top:24px}
+}
