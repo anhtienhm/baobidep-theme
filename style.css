@@ -262,7 +262,8 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;back
   .stats .wrap{grid-template-columns:repeat(4,1fr)}
   .stat:nth-child(n+5){border-top:1px solid rgba(255,255,255,.1)}
   .hero .wrap,.about .wrap,.quote .wrap{grid-template-columns:1fr;gap:42px}
-  .hero-visual{max-width:480px;margin:0 auto}
+  .hero-visual{max-width:480px;margin:0 auto;order:1}
+  .hero .htext{order:2}
   .steps{grid-template-columns:repeat(2,1fr)}.steps::before{display:none}
   .tgrid,.bgrid{grid-template-columns:1fr 1fr}
   .fgrid{grid-template-columns:1fr 1fr}
