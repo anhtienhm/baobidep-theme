@@ -38,6 +38,8 @@ class Vua_Cart {
         $product_id = (int) $product_id;
         $qty = max(1, (int) $qty);
         if ( get_post_type($product_id) !== 'sanpham' ) return false;
+        $price = (float) get_post_meta($product_id, '_vua_price', true);
+        if ( $price <= 0 ) return false;
         $items = self::get_items();
         $found = false;
         foreach ( $items as &$i ) {
