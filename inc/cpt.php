@@ -148,6 +148,134 @@ function vua_product_url($slug) {
     return $p ? get_permalink($p) : '#';
 }
 
+/** Sanpham: meta box gia */
+add_action('add_meta_boxes', function () {
+    add_meta_box('vua_price_box', 'Giá bán', 'vua_render_price_box', 'sanpham', 'side', 'high');
+});
+function vua_render_price_box($post) {
+    $price = (float) get_post_meta($post->ID, '_vua_price', true);
+    wp_nonce_field('vua_price_save', 'vua_price_nonce');
+    echo '<p><label for="vua_price"><b>Giá (VND)</b></label><br>';
+    echo '<input type="number" min="0" step="1000" name="vua_price" id="vua_price" value="' . esc_attr($price) . '" style="width:100%" placeholder="vd: 25000"></p>';
+    echo '<p style="color:#666;font-size:.85em">Để trống / 0 = hiển thị "Liên hệ".</p>';
+}
+add_action('save_post_sanpham', function ($pid) {
+    if ( ! isset($_POST['vua_price_nonce']) || ! wp_verify_nonce($_POST['vua_price_nonce'], 'vua_price_save') ) return;
+    if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) return;
+    if ( ! current_user_can('edit_post', $pid) ) return;
+    $price = isset($_POST['vua_price']) ? (float) $_POST['vua_price'] : 0;
+    update_post_meta($pid, '_vua_price', $price);
+});
+
+/** CPT Don hang */
+add_action('init', function () {
+    register_post_type('vua_order', array(
+        'labels' => array(
+            'name'          => 'Đơn hàng',
+            'singular_name' => 'Đơn hàng',
+            'menu_name'     => 'Đơn hàng',
+            'all_items'     => 'Tất cả đơn hàng',
+            'edit_item'     => 'Chi tiết đơn hàng',
+        ),
+        'public'        => false,
+        'show_ui'       => true,
+        'show_in_menu'  => true,
+        'menu_icon'     => 'dashicons-cart',
+        'menu_position' => 24,
+        'supports'      => array('title','editor'),
+        'capability_type' => 'post',
+    ));
+});
+
+/** Columns cho danh sach don hang */
+add_filter('manage_vua_order_posts_columns', function ( $cols ) {
+    return array(
+        'cb'      => isset($cols['cb']) ? $cols['cb'] : '',
+        'title'   => 'Đơn',
+        'oname'   => 'Khách',
+        'ophone'  => 'SĐT',
+        'ototal'  => 'Tổng tiền',
+        'ostatus' => 'Trạng thái',
+        'date'    => 'Ngày',
+    );
+});
+add_action('manage_vua_order_posts_custom_column', function ( $col, $id ) {
+    switch ( $col ) {
+        case 'oname':  echo esc_html( get_post_meta($id, '_vua_customer_name', true) ); break;
+        case 'ophone': echo esc_html( get_post_meta($id, '_vua_customer_phone', true) ); break;
+        case 'ototal': echo esc_html( vua_format_price( get_post_meta($id, '_vua_total', true) ) ); break;
+        case 'ostatus':
+            $s = get_post_meta($id, '_vua_status', true) ?: 'pending';
+            $labels = array(
+                'pending' => array('Chờ xử lý', '#b8860b'),
+                'processing' => array('Đang xử lý', '#1A3C86'),
+                'completed' => array('Hoàn thành', '#06A77D'),
+                'cancelled' => array('Đã hủy', '#999'),
+            );
+            $l = isset($labels[$s]) ? $labels[$s] : array($s, '#666');
+            printf('<span style="display:inline-block;padding:2px 8px;border-radius:10px;background:%s;color:#fff;font-size:.85em">%s</span>', esc_attr($l[1]), esc_html($l[0]));
+            break;
+    }
+}, 10, 2);
+
+/** Meta box: chi tiet don hang */
+add_action('add_meta_boxes', function () {
+    add_meta_box('vua_order_detail', 'Chi tiết đơn hàng', 'vua_render_order_detail', 'vua_order', 'normal', 'high');
+    add_meta_box('vua_order_status', 'Trạng thái', 'vua_render_order_status', 'vua_order', 'side', 'high');
+});
+function vua_render_order_detail($post) {
+    $name    = get_post_meta($post->ID, '_vua_customer_name', true);
+    $phone   = get_post_meta($post->ID, '_vua_customer_phone', true);
+    $email   = get_post_meta($post->ID, '_vua_customer_email', true);
+    $address = get_post_meta($post->ID, '_vua_customer_address', true);
+    $items   = get_post_meta($post->ID, '_vua_items', true);
+    $total   = get_post_meta($post->ID, '_vua_total', true);
+    ?>
+    <table class="form-table">
+      <tr><th>Họ tên</th><td><?php echo esc_html($name); ?></td></tr>
+      <tr><th>SĐT</th><td><a href="tel:<?php echo esc_attr($phone); ?>"><?php echo esc_html($phone); ?></a></td></tr>
+      <tr><th>Email</th><td><?php echo esc_html($email); ?></td></tr>
+      <tr><th>Địa chỉ</th><td><?php echo esc_html($address); ?></td></tr>
+    </table>
+    <h3>Sản phẩm</h3>
+    <table class="widefat striped">
+      <thead><tr><th>Sản phẩm</th><th>SL</th><th>Đơn giá</th><th>Thành tiền</th></tr></thead>
+      <tbody>
+        <?php if ( is_array($items) ) foreach ( $items as $it ) : ?>
+        <tr>
+          <td><?php echo esc_html($it['title']); ?></td>
+          <td><?php echo intval($it['qty']); ?></td>
+          <td><?php echo esc_html( vua_format_price($it['price']) ); ?></td>
+          <td><?php echo esc_html( vua_format_price($it['price'] * $it['qty']) ); ?></td>
+        </tr>
+        <?php endforeach; ?>
+        <tr><th colspan="3" style="text-align:right">Tổng cộng:</th><th><?php echo esc_html( vua_format_price($total) ); ?></th></tr>
+      </tbody>
+    </table>
+    <?php
+}
+function vua_render_order_status($post) {
+    $s = get_post_meta($post->ID, '_vua_status', true) ?: 'pending';
+    wp_nonce_field('vua_order_status_save', 'vua_order_status_nonce');
+    $opts = array(
+        'pending'    => 'Chờ xử lý',
+        'processing' => 'Đang xử lý',
+        'completed'  => 'Hoàn thành',
+        'cancelled'  => 'Đã hủy',
+    );
+    echo '<select name="vua_order_status" style="width:100%">';
+    foreach ( $opts as $v => $l ) {
+        printf('<option value="%s"%s>%s</option>', esc_attr($v), selected($s, $v, false), esc_html($l));
+    }
+    echo '</select>';
+}
+add_action('save_post_vua_order', function ($pid) {
+    if ( ! isset($_POST['vua_order_status_nonce']) || ! wp_verify_nonce($_POST['vua_order_status_nonce'], 'vua_order_status_save') ) return;
+    if ( ! current_user_can('edit_post', $pid) ) return;
+    $s = isset($_POST['vua_order_status']) ? sanitize_text_field($_POST['vua_order_status']) : 'pending';
+    update_post_meta($pid, '_vua_status', $s);
+});
+
 /** Helper: anh dai dien san pham — featured image > meta _vua_img > placeholder */
 function vua_product_image($post_id = null) {
     $post_id = $post_id ?: get_the_ID();
