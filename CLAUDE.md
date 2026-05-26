@@ -27,4 +27,4 @@ Claude Code → push branch `claude/*` → GitHub Actions auto-merge vào `main`
 - Webhook trả 2 delivery / push (claude/* skip, main deploy)
 - Nếu server bị detached HEAD → webhook tự fix (self-heal nhánh)
 - KHÔNG sửa `deploy-webhook.php` trừ khi cần — file tự deploy chính nó
-
+- Actions fire test: 2026-05-26
