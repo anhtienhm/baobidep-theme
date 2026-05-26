@@ -54,8 +54,8 @@ section{position:relative}
 /* ===== HEADER ===== */
 header{position:sticky;top:0;z-index:1000;background:var(--navy);box-shadow:0 2px 0 rgba(255,210,77,.25)}
 header.shrink{box-shadow:0 10px 30px -14px rgba(0,0,0,.5)}
-.nav{display:flex;align-items:center;gap:24px;padding:12px 0;transition:padding .3s}
-header.shrink .nav{padding:8px 0}
+.nav{display:flex;align-items:center;gap:24px;padding:4px 0;transition:padding .3s}
+header.shrink .nav{padding:2px 0}
 .logo{display:inline-flex;align-items:center}
 .logo .brandmark{width:89px;height:89px}
 .menu{display:flex;gap:22px;list-style:none;margin-left:auto}
