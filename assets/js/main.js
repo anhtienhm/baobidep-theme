@@ -1,8 +1,10 @@
 const header=document.getElementById('header');
 addEventListener('scroll',()=>header.classList.toggle('shrink',scrollY>30));
 const burger=document.getElementById('burger'),menu=document.getElementById('menu');
-burger.addEventListener('click',()=>menu.classList.toggle('open'));
-menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const closeMenu=()=>{menu.classList.remove('open');document.body.classList.remove('menu-open');};
+burger.addEventListener('click',e=>{e.stopPropagation();const o=menu.classList.toggle('open');document.body.classList.toggle('menu-open',o);});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+document.addEventListener('click',e=>{if(menu.classList.contains('open')&&!menu.contains(e.target)&&!burger.contains(e.target))closeMenu();});
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 const cio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,end=+el.dataset.c,sf=el.dataset.s||'';let n=0,st=Math.max(1,Math.round(end/45));const t=setInterval(()=>{n+=st;if(n>=end){n=end;clearInterval(t)}el.textContent=n+sf},22);cio.unobserve(el)}),{threshold:.6});
