@@ -68,6 +68,10 @@ header.shrink .nav{padding:2px 0}
 .hphone .ic{width:34px;height:34px;border-radius:50%;background:var(--grad-gold);display:flex;align-items:center;justify-content:center}
 .hphone .ic svg{width:17px;height:17px;stroke:var(--navy-deep)}
 .hphone b{font-family:"Oswald";font-size:1.08rem;letter-spacing:.02em}
+.hcart{position:relative;display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,210,77,.3);color:var(--gold-lt);transition:background .2s,transform .2s}
+.hcart:hover{background:rgba(255,210,77,.18);transform:scale(1.06);color:#fff}
+.hcart svg{width:20px;height:20px}
+.hcart .cart-count{position:absolute;top:-4px;right:-4px;min-width:18px;height:18px;border-radius:9px;background:var(--grad-gold);color:var(--navy-deep);font-family:"Oswald";font-weight:700;font-size:.65rem;display:flex;align-items:center;justify-content:center;padding:0 5px;line-height:1}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
 .burger span{width:25px;height:2.5px;background:var(--gold-lt)}
 
@@ -280,6 +284,9 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;back
   body.menu-open{overflow:hidden}
   .nav-r{margin-left:auto}
   .burger{display:flex;position:relative;z-index:1001;width:34px;height:34px;justify-content:center;align-items:center}
+  .hphone{display:none}
+  .hcart{width:38px;height:38px}
+  .hcart svg{width:18px;height:18px}
   .burger span{transition:transform .3s,opacity .2s;transform-origin:center}
   body.menu-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   body.menu-open .burger span:nth-child(2){opacity:0}
