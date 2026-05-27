@@ -238,6 +238,7 @@ header.shrink .nav{padding:2px 0}
 .clogos{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
 .clogo{background:#fff;border:1px solid var(--line);border-radius:12px;height:78px;display:flex;align-items:center;justify-content:center;padding:12px;font-family:"Oswald";font-weight:700;text-transform:uppercase;color:#8a93a8;letter-spacing:.03em;text-align:center;font-size:.92rem;transition:.3s;filter:grayscale(1);opacity:.78}
 .clogo:hover{filter:grayscale(0);opacity:1;color:var(--navy);transform:scale(1.04)}
+.clogo img{max-width:100%;max-height:54px;width:auto;height:auto;object-fit:contain;display:block}
 
 /* ===== BLOG ===== */
 .bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}

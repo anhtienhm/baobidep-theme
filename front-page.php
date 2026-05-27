@@ -231,16 +231,15 @@ $u = get_template_directory_uri();
   <div class="wrap">
     <div class="shead rv"><h2>Hơn 500 doanh nghiệp đồng hành</h2></div>
     <div class="clogos">
-      <div class="clogo rv">Vinamilk</div>
-      <div class="clogo rv">TH true MILK</div>
-      <div class="clogo rv">Trung Nguyên</div>
-      <div class="clogo rv">Acecook</div>
-      <div class="clogo rv">Masan</div>
-      <div class="clogo rv">Sabeco</div>
-      <div class="clogo rv">Vinacafé</div>
-      <div class="clogo rv">Kinh Đô</div>
-      <div class="clogo rv">Tân Hiệp Phát</div>
-      <div class="clogo rv">Habeco</div>
+      <?php $up = home_url('/wp-content/uploads/2026/05/'); ?>
+      <div class="clogo rv"><img src="<?php echo esc_url($up . 'Vinamilk.png'); ?>" alt="Vinamilk" loading="lazy"></div>
+      <div class="clogo rv"><img src="<?php echo esc_url($up . 'logo-th-true-milk-png.png'); ?>" alt="TH true MILK" loading="lazy"></div>
+      <div class="clogo rv"><img src="<?php echo esc_url($up . 'trung-nguyen-logo.png'); ?>" alt="Trung Nguyên" loading="lazy"></div>
+      <div class="clogo rv"><img src="<?php echo esc_url($up . 'logo-acecook.png'); ?>" alt="Acecook" loading="lazy"></div>
+      <div class="clogo rv"><img src="<?php echo esc_url($up . 'masan-logo.png'); ?>" alt="Masan" loading="lazy"></div>
+      <div class="clogo rv"><img src="<?php echo esc_url($up . 'sabeco-logo.png'); ?>" alt="Sabeco" loading="lazy"></div>
+      <div class="clogo rv"><img src="<?php echo esc_url($up . 'Pepsi.png'); ?>" alt="Pepsi" loading="lazy"></div>
+      <div class="clogo rv"><img src="<?php echo esc_url($up . 'Nestle.png'); ?>" alt="Nestlé" loading="lazy"></div>
     </div>
   </div>
 </section>
