@@ -38,7 +38,7 @@ img{max-width:100%;display:block}
 .gtext{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent}
 .kick{font-family:"Oswald";font-weight:600;letter-spacing:.26em;text-transform:uppercase;font-size:.72rem;color:var(--gold-dk)}
 section{position:relative}
-.pad{padding:0}
+.pad{padding:84px 0}
 .shead{text-align:center;max-width:680px;margin:0 auto 48px}
 .shead h2{font-size:clamp(1.8rem,3.4vw,2.6rem);text-transform:uppercase;color:var(--navy-deep);margin:8px 0 14px}
 .shead p{color:var(--muted)}
@@ -348,7 +348,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;back
   .pcb a{font-size:.72rem;margin-top:10px}
   .pb{height:120px}
   .clogos,.stats .wrap{grid-template-columns:1fr 1fr}
-  .pad{padding:0}.hero .wrap{padding:48px 28px 56px}
+  .pad{padding:56px 0}.hero .wrap{padding:48px 28px 56px}
   .fab{right:10px;bottom:16px}
   .abadge{right:8px}
 }
