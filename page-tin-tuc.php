@@ -30,7 +30,10 @@ $q = new WP_Query(array(
           $thumb = has_post_thumbnail() ? get_the_post_thumbnail_url(get_the_ID(), 'large') : $u . '/assets/img/products/p0.jpg';
         ?>
         <article class="bcard rv">
-          <a class="bthumb" href="<?php the_permalink(); ?>"><img class="bimg" src="<?php echo esc_url($thumb); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy"></a>
+          <a class="bthumb" href="<?php the_permalink(); ?>">
+            <img class="bimg" src="<?php echo esc_url($thumb); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy">
+            <span class="btag">Tin tức</span>
+          </a>
           <div class="bcb">
             <span class="bdate"><?php echo esc_html(get_the_date('d.m.Y')); ?></span>
             <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
