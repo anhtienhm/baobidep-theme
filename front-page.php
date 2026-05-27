@@ -233,14 +233,14 @@ $u = get_template_directory_uri();
     <div class="clogos">
       <div class="clogo rv">Vinamilk</div>
       <div class="clogo rv">TH true MILK</div>
-      <div class="clogo rv">Nestlé</div>
-      <div class="clogo rv">Pepsi</div>
-      <div class="clogo rv">Suntory</div>
+      <div class="clogo rv">Trung Nguyên</div>
+      <div class="clogo rv">Acecook</div>
+      <div class="clogo rv">Masan</div>
       <div class="clogo rv">Sabeco</div>
-      <div class="clogo rv">Universal Robina</div>
-      <div class="clogo rv">CJ Foods</div>
-      <div class="clogo rv">Bayer</div>
-      <div class="clogo rv">Heineken</div>
+      <div class="clogo rv">Vinacafé</div>
+      <div class="clogo rv">Kinh Đô</div>
+      <div class="clogo rv">Tân Hiệp Phát</div>
+      <div class="clogo rv">Habeco</div>
     </div>
   </div>
 </section>
