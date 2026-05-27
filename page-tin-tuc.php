@@ -11,7 +11,7 @@ $q = new WP_Query(array(
 ));
 ?>
 
-<section class="sp-hero pad">
+<section class="sp-hero pad" style="padding-bottom:20px">
   <div class="wrap">
     <nav class="sp-crumbs rv"><a href="<?php echo esc_url(home_url('/')); ?>">Trang chủ</a> <span>/</span> <b>Tin tức</b></nav>
     <div class="shead rv" style="text-align:left;max-width:none">
@@ -22,7 +22,7 @@ $q = new WP_Query(array(
   </div>
 </section>
 
-<section class="sp-related pad" style="padding-top:24px">
+<section class="sp-related pad" style="padding-top:20px">
   <div class="wrap">
     <?php if ( $q->have_posts() ) : ?>
       <div class="bgrid">
