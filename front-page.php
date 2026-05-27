@@ -239,6 +239,7 @@ $u = get_template_directory_uri();
       <div class="clogo rv"><img src="<?php echo esc_url($up . 'masan-logo.png'); ?>" alt="Masan" loading="lazy"></div>
       <div class="clogo rv"><img src="<?php echo esc_url($up . 'sabeco-logo.png'); ?>" alt="Sabeco" loading="lazy"></div>
       <div class="clogo rv"><img src="<?php echo esc_url($up . 'logo-tan-hiep-phat.png'); ?>" alt="Tân Hiệp Phát" loading="lazy"></div>
+      <div class="clogo rv"><img src="<?php echo esc_url($up . 'logo-kinh-do.png'); ?>" alt="Kinh Đô" loading="lazy"></div>
       <div class="clogo rv"><img src="<?php echo esc_url($up . 'Pepsi.png'); ?>" alt="Pepsi" loading="lazy"></div>
       <div class="clogo rv"><img src="<?php echo esc_url($up . 'Nestle.png'); ?>" alt="Nestlé" loading="lazy"></div>
     </div>
