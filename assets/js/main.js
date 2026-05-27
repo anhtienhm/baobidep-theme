@@ -149,15 +149,16 @@ if(cf){
     e.preventDefault();
     const msg=document.getElementById('checkoutMsg');
     msg.classList.remove('show');
+    const addrParts=[cf.street?.value.trim(),cf.ward?.value.trim(),cf.district?.value.trim(),cf.province?.value.trim()].filter(Boolean);
     const fd={
       name:cf.name.value.trim(),
       phone:cf.phone.value.trim(),
       email:cf.email.value.trim(),
-      address:cf.address.value.trim(),
+      address:addrParts.join(', '),
       notes:cf.notes.value.trim(),
     };
-    if(!fd.name||!fd.phone||!fd.address){
-      msg.textContent='Vui lòng nhập Họ tên, SĐT và Địa chỉ.';msg.classList.add('show');return;
+    if(!fd.name||!fd.phone||addrParts.length<4){
+      msg.textContent='Vui lòng nhập đầy đủ Họ tên, SĐT và Địa chỉ giao hàng (4 cấp).';msg.classList.add('show');return;
     }
     const btn=cf.querySelector('.checkout-submit');
     btn.classList.add('loading');btn.textContent='Đang xử lý…';
