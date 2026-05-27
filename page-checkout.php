@@ -21,13 +21,32 @@ $total = Vua_Cart::total();
       </div>
     <?php else : ?>
       <div class="checkout-grid">
-        <form class="checkout-form" id="checkoutForm">
+        <form class="checkout-form compact" id="checkoutForm">
           <h3>Thông tin khách hàng</h3>
-          <div class="fg"><label>Họ và tên <i>*</i></label><input type="text" name="name" required></div>
-          <div class="fg"><label>Số điện thoại <i>*</i></label><input type="tel" name="phone" required placeholder="0xxx xxx xxx"></div>
+          <div class="fg-row">
+            <div class="fg"><label>Họ và tên <i>*</i></label><input type="text" name="name" required></div>
+            <div class="fg"><label>Số điện thoại <i>*</i></label><input type="tel" name="phone" required placeholder="0xxx xxx xxx"></div>
+          </div>
           <div class="fg"><label>Email</label><input type="email" name="email" placeholder="optional@example.com"></div>
-          <div class="fg"><label>Địa chỉ giao hàng <i>*</i></label><input type="text" name="address" required placeholder="Số nhà, đường, phường, quận, tỉnh/thành"></div>
-          <div class="fg"><label>Ghi chú</label><textarea name="notes" rows="3" placeholder="Yêu cầu đặc biệt cho đơn hàng (nếu có)"></textarea></div>
+
+          <h4 class="fg-section">Địa chỉ giao hàng <i>*</i></h4>
+          <div class="fg"><label>Số nhà, đường</label><input type="text" name="street" required placeholder="VD: 12 Nguyễn Văn Cừ"></div>
+          <div class="fg-row">
+            <div class="fg"><label>Phường/Xã</label><input type="text" name="ward" required placeholder="VD: Phường Bến Nghé"></div>
+            <div class="fg"><label>Quận/Huyện</label><input type="text" name="district" required placeholder="VD: Quận 1"></div>
+          </div>
+          <div class="fg"><label>Tỉnh/Thành phố</label>
+            <select name="province" required>
+              <option value="">— Chọn tỉnh/thành —</option>
+              <?php foreach ( vua_provinces() as $i => $p ) :
+                if ( $i === 5 ) echo '<option disabled>──────────</option>';
+              ?>
+                <option value="<?php echo esc_attr($p); ?>"><?php echo esc_html($p); ?></option>
+              <?php endforeach; ?>
+            </select>
+          </div>
+
+          <div class="fg"><label>Ghi chú</label><textarea name="notes" rows="2" placeholder="Yêu cầu đặc biệt cho đơn hàng (nếu có)"></textarea></div>
           <div class="checkout-msg" id="checkoutMsg"></div>
           <button type="submit" class="btn btn-gold checkout-submit">Đặt hàng ngay</button>
           <p class="checkout-note">Nhân viên sẽ liên hệ xác nhận đơn hàng trong vòng 30 phút (giờ hành chính). Thanh toán COD hoặc chuyển khoản sau khi xác nhận.</p>
