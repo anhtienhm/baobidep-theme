@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="220" viewBox="0 0 600 220">
+      <defs>
+  <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#FFE08A"/><stop offset=".5" stop-color="#FFD24D"/>
+    <stop offset="1" stop-color="#F5B30B"/></linearGradient>
+  <linearGradient id="goldD" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#FFD24D"/><stop offset="1" stop-color="#C98A06"/></linearGradient></defs>
+      <rect width="600" height="220" fill="#ffffff"/>
+      <g transform="translate(40,55)">
+      <path d="M60,70 L112,96.0 L60,122 L8,96.0 Z" fill="#FFE08A"/><path d="M112,96.0 L60,122 L60,162 L112,136.0 Z" fill="#F5B30B"/><path d="M8,96.0 L60,122 L60,162 L8,136.0 Z" fill="#C98A06"/>
+      <g><path d="M20,70 L20,50.24 L33.333333333333336,21.12 L46.66666666666667,44.0 L60.0,18 L73.33333333333334,44.0 L86.66666666666667,21.12 L100.0,50.24 L100,70 Z" fill="url(#gold)"/><circle cx="33.333333333333336" cy="21.12" r="4.42" fill="url(#gold)"/><circle cx="60.0" cy="18" r="4.42" fill="url(#gold)"/><circle cx="86.66666666666667" cy="21.12" r="4.42" fill="url(#gold)"/></g>
+    </g><g fill="none" stroke="url(#gold)" stroke-width="15"
+        stroke-linecap="butt" stroke-linejoin="miter"><path d="M200,78 L223.0,148 L246,78" /><path d="M268,78 L268,128.68 Q268,148 287.32,148 L294.68,148 Q314,148 314,128.68 L314,78" /><path d="M336,148 L359.0,78 L382,148 M344.28,121.4 L373.72,121.4" /></g><text x="202" y="185" fill="#C98A06"
+        font-family="DejaVu Sans" font-weight="bold" font-size="19"
+        letter-spacing="5">BAO BÌ CÔNG NGHIỆP</text></svg>

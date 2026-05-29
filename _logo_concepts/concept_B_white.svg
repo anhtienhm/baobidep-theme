@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320">
+      <defs>
+  <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#FFE08A"/><stop offset=".5" stop-color="#FFD24D"/>
+    <stop offset="1" stop-color="#F5B30B"/></linearGradient>
+  <linearGradient id="goldD" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#FFD24D"/><stop offset="1" stop-color="#C98A06"/></linearGradient></defs>
+      <rect width="320" height="320" fill="#ffffff"/>
+      
+    <rect x="36" y="36" width="248" height="248" rx="54"
+        fill="#1A3C86" stroke="url(#gold)" stroke-width="6"/>
+    <g><path d="M105,130 L105,107.2 L123.33333333333333,73.6 L141.66666666666666,100.0 L160.0,70 L178.33333333333331,100.0 L196.66666666666666,73.6 L215.0,107.2 L215,130 Z" fill="url(#gold)"/><circle cx="123.33333333333333" cy="73.6" r="5.1000000000000005" fill="url(#gold)"/><circle cx="160.0" cy="70" r="5.1000000000000005" fill="url(#gold)"/><circle cx="196.66666666666666" cy="73.6" r="5.1000000000000005" fill="url(#gold)"/></g>
+    <g fill="none" stroke="url(#gold)" stroke-width="30"
+       stroke-linejoin="miter" stroke-linecap="butt">
+       <path d="M95,150 L160,250 L225,150"/>
+    </g>
+    <path d="M95,150 L160,250 L225,150 L208,150 L160,222 L112,150 Z"
+       fill="#FFE08A" opacity="0.0"/>
+    </svg>

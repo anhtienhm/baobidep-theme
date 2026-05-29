@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300"><defs><linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#FFE08A"/><stop offset=".55" stop-color="#FFD24D"/>
+<stop offset="1" stop-color="#F5B30B"/></linearGradient>
+<linearGradient id="goldS" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#FFD24D"/><stop offset="1" stop-color="#C98A06"/></linearGradient></defs><rect width="300" height="300" fill="#0D255C"/><path d="M88,150 L212,150 L205,255 L95,255 Z" fill="url(#goldS)"/>
+      <path d="M88,150 L150,170 L150,135 Z" fill="#FFE08A"/>
+      <path d="M212,150 L150,170 L150,135 Z" fill="#FFD24D"/>
+      <path d="M150,135 L150,170" stroke="#9A6A04" stroke-width="2" opacity=".5"/><path d="M88,150 L150,135 L212,150" fill="none" stroke="#C98A06" stroke-width="2" opacity=".4"/><rect x="142" y="150" width="16" height="105" fill="#FFE08A" opacity=".5"/><g transform="translate(150,100)"><path d="M-52,60 L-44.72,30.0 L-34.66666666666667,6.0 L-17.333333333333336,27.6 L0.0,0 L17.33333333333333,27.6 L34.66666666666666,6.0 L44.72,30.0 L52,60 Z" fill="url(#gold)"/><rect x="-52" y="58.8" width="104" height="9.6" rx="3.0" fill="url(#gold)"/><circle cx="-34.66666666666667" cy="6.0" r="5.3999999999999995" fill="url(#gold)"/><circle cx="0.0" cy="0" r="5.3999999999999995" fill="url(#gold)"/><circle cx="34.66666666666666" cy="6.0" r="5.3999999999999995" fill="url(#gold)"/><circle cx="-22.879999999999995" cy="62.7" r="3.0" fill="#0D255C"/><circle cx="0.0" cy="62.7" r="3.0" fill="#0D255C"/><circle cx="22.879999999999995" cy="62.7" r="3.0" fill="#0D255C"/></g></svg>

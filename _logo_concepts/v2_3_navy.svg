@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320"><defs><linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#FFE08A"/><stop offset=".55" stop-color="#FFD24D"/>
+<stop offset="1" stop-color="#F5B30B"/></linearGradient>
+<linearGradient id="goldS" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#FFD24D"/><stop offset="1" stop-color="#C98A06"/></linearGradient></defs>
+      <rect width="320" height="320" fill="#0D255C"/>
+      <rect x="34" y="34" width="252" height="252" rx="58" fill="#1A3C86" stroke="url(#gold)" stroke-width="6"/>
+      <g transform="translate(160,168)"><path d="M0,0 L56,28.0 L0,56 L-56,28.0 Z" fill="#FFE08A"/><path d="M56,28.0 L0,56 L0,98 L56,70.0 Z" fill="#F5B30B"/><path d="M-56,28.0 L0,56 L0,98 L-56,70.0 Z" fill="#C98A06"/><path d="M0,0 L0,56" stroke="#9A6A04" stroke-width="2.5" opacity=".5"/><path d="M0,56 L0,98" stroke="#FFE08A" stroke-width="9" opacity=".45"/></g><g transform="translate(160,128)"><path d="M-46,56 L-39.56,28.0 L-30.666666666666664,5.6000000000000005 L-15.333333333333332,25.76 L0.0,0 L15.333333333333336,25.76 L30.66666666666667,5.6000000000000005 L39.56,28.0 L46,56 Z" fill="url(#gold)"/><rect x="-46" y="54.88" width="92" height="8.96" rx="2.8000000000000003" fill="url(#gold)"/><circle cx="-30.666666666666664" cy="5.6000000000000005" r="5.04" fill="url(#gold)"/><circle cx="0.0" cy="0" r="5.04" fill="url(#gold)"/><circle cx="30.66666666666667" cy="5.6000000000000005" r="5.04" fill="url(#gold)"/><circle cx="-20.24" cy="58.52" r="2.8000000000000003" fill="#0D255C"/><circle cx="0.0" cy="58.52" r="2.8000000000000003" fill="#0D255C"/><circle cx="20.239999999999995" cy="58.52" r="2.8000000000000003" fill="#0D255C"/></g></svg>
